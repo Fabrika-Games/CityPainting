@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="55edd8b5-64a4-44e4-8843-5f64c3222b6d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.5.5/Editor/Signals/SignalReceiverInspector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file:///private/var/folders/b5/1zs2r7tn3vs1pntvthrg5qj00000gn/T/Pancake_Assets__GameAssets__Scripts_M_Audio_Before_6ec9aa9ffe6484de166f8d35952a0b15e31d916b.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_StartWithPlusXXItems.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/_Debug_UI_Elemets/Button_DebugGameComplete.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_Retry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Upgrade.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F733223A-0878-421A-937D-DE9830EFBEF8/6f/ce5d7c59/IBeginDragHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/GameScreen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_Scripts/ActivateIfPlatform.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_Scripts/Level.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_Scripts/ScreenName.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_Scripts/DebugContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_LevelEndMultiplyCollectedMoney_LoseIt.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_Scripts/Editor/StartupSceneEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FF4E657D-96A8-4691-9B0F-6EFFBE5E45E2/42/6b8ceb1e/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Container_TutorialDragToPlay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Pancake/Pancake/Assets/_GameAssets/_Scripts/M_Audio.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../HyperCasualTemplate/Assets/Scripts/Template/Observer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Core/Serialization/Serialization.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_Scripts/_Test/TestRandomPosition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_LevelEndUnlock_NoThanks.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Pancake/Pancake/Assets/_GameAssets/_Scripts/M_Settings.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/ButtonBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/LevelEndUnlockScreen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/1c/5ebd0f26/Action.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_LevelEndMultiplyCollectedMoney_Claim.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.5.5/Editor/Utilities/BreadcrumbDrawer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_LevelEndUnlock_NextLevel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/_M_Ads/Button_RewardedCancelled.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/SettingsShop.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/GraphicRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/CompleteMenuScreen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_StartGame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_Scripts/_ScriptableObjects/UnlockSystemData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/_M_Ads/Button_RewardedWatched.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_NextLevel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Container_TutorialSwipeToPlay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/99258562-0D64-4271-98DD-F3A0E1467733/3a/119a6a11/Action`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/_Debug_UI_Elemets/Button_DebugAddMoney.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_UpgradeSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_Continue.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/FailMenuScreen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Data.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_NextLevel.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/_M_Ads/Button_RewardedWatched.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/_M_Ads/Button_RewardedCancelled.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_StartWithPlusXXItems.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_Continue.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Container_GoldInfo.cs" />
+      <option value="$PROJECT_DIR$/Assets/_ThirdParty/UIManager/Screens/Screen.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_MultiplyCollectedMoney_LoseIt.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/MultiplyCollectedMoneyScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_MultiplyCollectedMoney_Claim.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/LevelUnlock.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/LevelUnlockScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/ScreenIds.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_LevelEndMultiplyCollectedMoney_LoseIt.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_LevelEndUnlock_LoseIt.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_LevelEndUnlock_FillFaster.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_LevelEndUnlock_NoThanks.cs" />
+      <option value="$PROJECT_DIR$/Assets/_ThirdParty/UIManager/UIManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/_ScriptableObjects/UnlockSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/_ScriptableObjects/UnlockSystemData.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Prefabs.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Data.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Level.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Container_LevelInfo.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_LevelEndUnlock_NextLevel.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_LevelEndMultiplyCollectedMoney_Claim.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_Upgrade.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_UpgradeSystem_00.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/_ScriptableObjects/UpgradeSystemData.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/_Debug_UI_Elemets/Button_DebugAddMoney.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/SettingsShop.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/SettingsScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/MainMenuScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/GameScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/FailMenuScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/CompleteMenuScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/LevelEndMultiplyCollectedMoneyScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/LevelEndUnlockScreen.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Config.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Observer.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Menu.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Loading.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Ads.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Container_MoneyInfo.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/Button_UpgradeSystem.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Upgrade.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Haptic.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/SliderToogleVibration.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_UI/_Scripts/_UI_Elements/ButtonBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Audio.cs" />
+      <option value="$PROJECT_DIR$/Assets/_GameAssets/_Scripts/M_Money.cs" />
+    </changedPaths>
+  </component>
+  <component name="ProjectId" id="1x7NQcAEDjBUixknVCmcUQm91rC" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="55edd8b5-64a4-44e4-8843-5f64c3222b6d" name="Default Changelist" comment="" />
+      <created>1629702153695</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1629702153695</updated>
+      <workItem from="1629702154726" duration="481000" />
+      <workItem from="1629702720828" duration="2038000" />
+      <workItem from="1629705061994" duration="3938000" />
+      <workItem from="1629720094526" duration="7409000" />
+      <workItem from="1629732428240" duration="1235000" />
+      <workItem from="1629787978568" duration="15846000" />
+      <workItem from="1629972783172" duration="16009000" />
+      <workItem from="1630005679591" duration="11698000" />
+      <workItem from="1630047724503" duration="20604000" />
+      <workItem from="1630252206580" duration="14977000" />
+    </task>
+    <servers />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

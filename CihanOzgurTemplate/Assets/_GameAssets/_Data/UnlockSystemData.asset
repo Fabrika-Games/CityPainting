@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f46521921d6fe449b85a33d93cf37ccb, type: 3}
+  m_Name: UnlockSystemData
+  m_EditorClassIdentifier: 
+  UnlockAssets:
+  - UnlockLevelCount: 2
+    UnlockStrokeSprite: {fileID: 21300000, guid: dc8ee3ad320cd443b8dfd48247150afd, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: c5b7994e7241543a99522a07893df742, type: 3}
+  - UnlockLevelCount: 3
+    UnlockStrokeSprite: {fileID: 21300000, guid: 662a1ebc3fc68420c9adf1a1b8670672, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: b7adeb6807a0947a891b27fc23f481e8, type: 3}
+  - UnlockLevelCount: 4
+    UnlockStrokeSprite: {fileID: 21300000, guid: 29c4ed08d21d44f1fa8e564bd1aab8b2, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: e14760c47a51e437e94b555a52b21f2d, type: 3}
+  - UnlockLevelCount: 5
+    UnlockStrokeSprite: {fileID: 21300000, guid: b9efe347ad09b41ec82f50e37fce6329, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: 3969454a2b55e418fb4a1313b566dde9, type: 3}
+  - UnlockLevelCount: 6
+    UnlockStrokeSprite: {fileID: 21300000, guid: 6dbbd88fa0e1346329d0812d1a110366, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: da69bd940dcb449ada8d2642fe3ccb1a, type: 3}
+  - UnlockLevelCount: 5
+    UnlockStrokeSprite: {fileID: 21300000, guid: 77eeefbf153e147f1a5a1856478e587f, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: e31a285f3d4eb4a99bd9365445e7b7df, type: 3}
+  - UnlockLevelCount: 3
+    UnlockStrokeSprite: {fileID: 21300000, guid: 4c72ed1eedcd145db961ee5a5c176a2d, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: 5cc2526360b224d0ab997ed8b6f48eb2, type: 3}
+  - UnlockLevelCount: 2
+    UnlockStrokeSprite: {fileID: 21300000, guid: 59fdc0f7041a24be4b9a6bdee761ee90, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: 8acf8ca23a16948e1b24251f92625473, type: 3}
+  - UnlockLevelCount: 3
+    UnlockStrokeSprite: {fileID: 21300000, guid: e3fa9c3f124304c4984c957a9e4ef697, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: d053d5b76ac6748ae9e48d077e8093c1, type: 3}
+  - UnlockLevelCount: 4
+    UnlockStrokeSprite: {fileID: 21300000, guid: 4c92c53ecd4894f2dba8113b90451745, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: 39d7ea5b938404aafa43fbc7baf7b3b7, type: 3}
+  - UnlockLevelCount: 5
+    UnlockStrokeSprite: {fileID: 21300000, guid: efd492a447aa74569aba6f2b53acdec9, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: efd492a447aa74569aba6f2b53acdec9, type: 3}
+  - UnlockLevelCount: 4
+    UnlockStrokeSprite: {fileID: 21300000, guid: c0549758d0c9e4a5ba5cfbb7d67a4342, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: 712efa1be961a4d3d8c8f182240134aa, type: 3}
+  - UnlockLevelCount: 3
+    UnlockStrokeSprite: {fileID: 21300000, guid: 8cfc3178c3d984362bfc5c29c6e86194, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: 26629622e97a9483a8a87eaa55487365, type: 3}
+  - UnlockLevelCount: 2
+    UnlockStrokeSprite: {fileID: 21300000, guid: 5098300d9c4524dcea6e93e546b56693, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: d46537131f3a34ee2b6a7695e550795a, type: 3}
+  - UnlockLevelCount: 3
+    UnlockStrokeSprite: {fileID: 21300000, guid: f9aa6066a813c406bb0f3a3ab7564040, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: c93e5383208c5457eac0458dc166e2c7, type: 3}
+  - UnlockLevelCount: 2147483647
+    UnlockStrokeSprite: {fileID: 21300000, guid: 6aab134c04a3a4a07a63f0a895adc22e, type: 3}
+    UnlockColourfulSprite: {fileID: 21300000, guid: aa51f5e88594f4a3894f30a0259023c2, type: 3}
