@@ -10,7 +10,7 @@ public class Level : MonoBehaviour
     public Material WhiteMaterial;
     public Cube[] AllCubes;
 
-    private void Start()
+    private void Awake()
     {
         AllCubes = Cubes.GetComponentsInChildren<Cube>();
 
@@ -48,5 +48,25 @@ public class Level : MonoBehaviour
                 AllCubes[i].TargetGameObjects[j].GetComponent<MeshRendererProperties>().CurrentCube = AllCubes[i];
             }
         }
+    }
+
+    private void Start()
+    {
+        TargetCubeChange(0);
+    }
+
+    public void TargetCubeChange(int _index = -1)
+    {
+        if (_index == -1)
+        {
+            return;
+        }
+
+        for (int i = 0; i < AllCubes.Length; i++)
+        {
+            AllCubes[i].IsTarget = false;
+        }
+
+        AllCubes[_index].MakeTarget();
     }
 }
