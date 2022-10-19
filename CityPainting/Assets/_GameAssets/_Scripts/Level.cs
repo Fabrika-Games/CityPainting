@@ -9,11 +9,11 @@ public class Level : MonoBehaviour
     public GameObject Cubes;
     public Material WhiteMaterial;
     public Cube[] AllCubes;
+    public int TargetIndex = -1;
 
     private void Awake()
     {
         AllCubes = Cubes.GetComponentsInChildren<Cube>();
-
         MeshRenderer[] _meshRenderers = MeshRenderersContainer.GetComponentsInChildren<MeshRenderer>();
         for (int i = 0; i < _meshRenderers.Length; i++)
         {
@@ -50,6 +50,36 @@ public class Level : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        FingerGestures.OnFingerTap += FingerGestures_OnFingerTap;
+    }
+
+    private void OnDisable()
+    {
+        FingerGestures.OnFingerTap -= FingerGestures_OnFingerTap;
+    }
+
+    private void FingerGestures_OnFingerTap(int fingerındex, Vector2 fingerpos, int tapcount)
+    {
+        if (fingerındex != 0)
+        {
+            return;
+        }
+
+        if (tapcount == 2)
+        {
+            GameObject _pickObject = CihanUtility.PickObject(fingerpos);
+            if (_pickObject != null)
+            {
+                if (_pickObject.TryGetComponent(out MeshRendererProperties _mrp))
+                {
+                    print(_mrp.CurrentCube.IsTarget);
+                }
+            }
+        }
+    }
+
     private void Start()
     {
         TargetCubeChange(0);
@@ -62,6 +92,7 @@ public class Level : MonoBehaviour
             return;
         }
 
+        TargetIndex = _index;
         for (int i = 0; i < AllCubes.Length; i++)
         {
             AllCubes[i].IsTarget = false;
