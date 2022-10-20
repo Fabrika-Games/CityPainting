@@ -79,6 +79,6 @@ MonoBehaviour:
   _pools:
   - _name: ParticleTrigger
     _component: {fileID: 1521263750346813579, guid: 30d60f87615d7484bbe0abbe7339ffe1, type: 3}
-    _count: 20
+    _count: 100
     _container: {fileID: 3105044096395061743}
     _nonLazy: 1

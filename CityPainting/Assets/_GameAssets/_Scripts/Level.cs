@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Level : MonoBehaviour
 {
@@ -56,21 +57,6 @@ public class Level : MonoBehaviour
                         _dualMaterial.ColoredMaterial.GetFloat("_Glossiness"));
 
 
-                    // ("Set1_albedo_tint", Color) 
-                    // _Set1_normal("Set1_normal", 2D) 
-                    // _Set1_emission("Set1_emission", 2D) 
-                    // _Set1_emission_tint("Set1_emission_tint", Color) 
-                    // _Set1_metallic("Set1_metallic", 2D) 
-                    // _Set1_tiling("Set1_tiling", Vector) 
-                    // _Set1_offset("Set1_offset", Vector) 
-                    // _Set2_normal("Set2_normal", 2D) 
-                    // _Set2_emission("Set2_emission", 2D) 
-                    // _Set2_emission_tint("Set2_emission_tint", Color) = (1, 1, 1, 1)
-                    // _Set2_metallic("Set2_metallic", 2D) 
-                    // _Set2_tiling("Set2_tiling", Vector) 
-                    // _Set2_offset("Set2_offset", Vector) 
-
-
                     DualMaterials.Add(_dualMaterial);
                 }
             }
@@ -99,6 +85,7 @@ public class Level : MonoBehaviour
 
         for (int i = 0; i < AllCubes.Length; i++)
         {
+            AllCubes[i].Index = i;
             for (int j = 0; j < AllCubes[i].TargetGameObjects.Count; j++)
             {
                 AllCubes[i].TargetGameObjects[j].GetComponent<MeshRendererProperties>().CurrentCube = AllCubes[i];
@@ -123,11 +110,22 @@ public class Level : MonoBehaviour
     private void OnEnable()
     {
         FingerGestures.OnFingerTap += FingerGestures_OnFingerTap;
+        M_Observer.OnTrueHitAnimationComplete += TrueHitAnimationComplete;
     }
 
     private void OnDisable()
     {
         FingerGestures.OnFingerTap -= FingerGestures_OnFingerTap;
+        M_Observer.OnTrueHitAnimationComplete -= TrueHitAnimationComplete;
+    }
+
+    private void TrueHitAnimationComplete()
+    {
+        Cube _cube = AllCubes.Where(qq => qq.IsTarget == false)?.OrderBy(qq => Random.Range(0, 1f))?.FirstOrDefault();
+        if (_cube != null)
+        {
+            TargetCubeChange(_cube.Index);
+        }
     }
 
     private void FingerGestures_OnFingerTap(int fingerındex, Vector2 fingerpos, int tapcount)
@@ -146,6 +144,7 @@ public class Level : MonoBehaviour
                     _pickObject.TryGetComponent(out MeshRendererProperties _mrp) &&
                     _mrp.CurrentCube != null &&
                     _mrp.CurrentCube.IsTarget == true &&
+                    _mrp.CurrentCube.isFounded == false &&
                     _mrp.CurrentCube.CurrentTrueHitController == null)
                 {
                     TrueHitController _trueHitController = Instantiate(M_Prefabs.I.TrueHitControllerPrefab);
@@ -155,8 +154,23 @@ public class Level : MonoBehaviour
         }
     }
 
+    public void TargetCubeFound(int _index = -1)
+    {
+        if (_index == -1)
+        {
+            return;
+        }
+
+        AllCubes[_index].Found();
+    }
+
     private void Start()
     {
+        for (int i = 0; i < AllCubes.Length; i++)
+        {
+            AllCubes[i].IsTarget = false;
+        }
+
         TargetCubeChange(0);
     }
 
@@ -167,12 +181,8 @@ public class Level : MonoBehaviour
             return;
         }
 
+        TargetCubeFound(TargetIndex);
         TargetIndex = _index;
-        for (int i = 0; i < AllCubes.Length; i++)
-        {
-            AllCubes[i].IsTarget = false;
-        }
-
         AllCubes[_index].MakeTarget();
     }
 }

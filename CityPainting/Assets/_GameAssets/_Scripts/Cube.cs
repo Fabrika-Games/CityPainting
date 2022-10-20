@@ -11,6 +11,9 @@ public class Cube : MonoBehaviour
     public bool IsTarget = false;
     public List<Renderer> RenderersForRenderTextures = new List<Renderer>();
     public TrueHitController CurrentTrueHitController;
+    public Vector3 BoundsCenter;
+    public int Index = -1;
+    public bool isFounded = false;
 
     private void Awake()
     {
@@ -69,6 +72,7 @@ public class Cube : MonoBehaviour
             }
         }
 
+        BoundsCenter = _bounds.center;
         transform.position += new Vector3(1000, 1000, 1000);
         _bounds = RenderersForRenderTextures[0].bounds;
         for (int i = 1; i < RenderersForRenderTextures.Count; i++)
@@ -77,5 +81,14 @@ public class Cube : MonoBehaviour
         }
 
         M_TargetCamera.I.SetTargets(_bounds);
+    }
+
+    public void Found()
+    {
+        isFounded = true;
+        for (int i = 0; i < RenderersForRenderTextures.Count; i++)
+        {
+            Destroy(RenderersForRenderTextures[i].gameObject);
+        }
     }
 }

@@ -13,7 +13,7 @@ public class M_Observer : MonoBehaviour
     public static Action OnGameRetry;
     public static Action OnGameContinue;
     public static Action OnGameNextLevel;
-
+    public static Action OnTrueHitAnimationComplete;
     private void Awake()
     {
         II = this;
@@ -103,4 +103,6 @@ public class M_Observer : MonoBehaviour
             return II;
         }
     }
+
+ 
 }
