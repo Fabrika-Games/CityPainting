@@ -1,15 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Level : MonoBehaviour
 {
     public GameObject MeshRenderersContainer;
     public GameObject Cubes;
-    public Material WhiteMaterial;
     public Cube[] AllCubes;
     public int TargetIndex = -1;
+    public List<DualMaterial> DualMaterials = new List<DualMaterial>();
 
     private void Awake()
     {
@@ -19,14 +20,40 @@ public class Level : MonoBehaviour
         {
             MeshRenderer _mr = _meshRenderers[i];
             MeshRendererProperties _mrp = _mr.gameObject.AddComponent<MeshRendererProperties>();
+            for (int j = 0; j < _mr.sharedMaterials.Length; j++)
+            {
+                Material _m = _mr.sharedMaterials[j];
+                if (DualMaterials.Any(qq => qq.ColoredMaterial == _m) == false)
+                {
+                    DualMaterial _dualMaterial = new DualMaterial();
+                    _dualMaterial.Index = DualMaterials.Count;
+                    _dualMaterial.ColoredMaterial = _m;
+                    _dualMaterial.WhiteMaterial = Instantiate(_m);
+                    _dualMaterial.WhiteMaterial.name += "_White";
+                    if (_dualMaterial.WhiteMaterial.mainTexture != null)
+                    {
+                        Texture2D _grayTexture =
+                            CihanUtility.ConvertToGrayscale((Texture2D)_dualMaterial.WhiteMaterial.mainTexture);
+                        _dualMaterial.WhiteMaterial.mainTexture = _grayTexture;
+                    }
+
+                    _dualMaterial.AnimationMaterial = Instantiate(M_Prefabs.I.AnimationMaterialPrefab);
+                    _dualMaterial.AnimationMaterial.SetTexture("_Set1_albedo",
+                        _dualMaterial.WhiteMaterial.mainTexture);
+                    _dualMaterial.AnimationMaterial.SetTexture("_Set2_albedo",
+                        _dualMaterial.ColoredMaterial.mainTexture);
+                    DualMaterials.Add(_dualMaterial);
+                }
+            }
+
             _mrp.ColoredMaterials = _mr.sharedMaterials;
             _mrp.Renderer = _mr;
             Material[] _whiteMaterials = new Material[_mr.sharedMaterials.Length];
             for (int j = 0; j < _mr.sharedMaterials.Length; j++)
             {
-                _whiteMaterials[j] = WhiteMaterial;
+                _whiteMaterials[j] = GetWhiteMaterial(_mr.sharedMaterials[j], out int _index);
+                _mrp.MaterialIndexes.Add(_index);
             }
-
             _mr.sharedMaterials = _whiteMaterials;
         }
 
@@ -50,6 +77,20 @@ public class Level : MonoBehaviour
         }
     }
 
+    private Material GetWhiteMaterial(Material sharedMaterial)
+    {
+        Material m = DualMaterials.FirstOrDefault(qq => qq.ColoredMaterial == sharedMaterial).WhiteMaterial;
+        return m;
+    }
+
+    private Material GetWhiteMaterial(Material sharedMaterial, out int _index)
+    {
+        DualMaterial _dualMaterial = DualMaterials.FirstOrDefault(qq => qq.ColoredMaterial == sharedMaterial);
+        Material m = _dualMaterial.WhiteMaterial;
+        _index = _dualMaterial.Index;
+        return m;
+    }
+
     private void OnEnable()
     {
         FingerGestures.OnFingerTap += FingerGestures_OnFingerTap;
@@ -69,12 +110,14 @@ public class Level : MonoBehaviour
 
         if (tapcount == 2)
         {
-            GameObject _pickObject = CihanUtility.PickObject(fingerpos);
+            GameObject _pickObject = CihanUtility.PickObject(fingerpos, out Vector3 hitPoint);
             if (_pickObject != null)
             {
-                if (_pickObject.TryGetComponent(out MeshRendererProperties _mrp))
+                if (_pickObject.TryGetComponent(out MeshRendererProperties _mrp) && _mrp.CurrentCube.IsTarget == true &&
+                    _mrp.CurrentCube.CurrentTrueHitController == null)
                 {
-                    print(_mrp.CurrentCube.IsTarget);
+                    TrueHitController _trueHitController = Instantiate(M_Prefabs.I.TrueHitControllerPrefab);
+                    _trueHitController.Setup(_mrp.CurrentCube, hitPoint);
                 }
             }
         }
@@ -100,4 +143,13 @@ public class Level : MonoBehaviour
 
         AllCubes[_index].MakeTarget();
     }
+}
+
+[System.Serializable]
+public struct DualMaterial
+{
+    public Material ColoredMaterial;
+    public Material WhiteMaterial;
+    public Material AnimationMaterial;
+    public int Index;
 }

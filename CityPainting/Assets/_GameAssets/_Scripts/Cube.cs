@@ -10,6 +10,7 @@ public class Cube : MonoBehaviour
     public List<MeshRendererProperties> MeshRendererPropertiesList = new List<MeshRendererProperties>();
     public bool IsTarget = false;
     public List<Renderer> RenderersForRenderTextures = new List<Renderer>();
+    public TrueHitController CurrentTrueHitController;
 
     private void Awake()
     {
@@ -57,6 +58,13 @@ public class Cube : MonoBehaviour
                 _renderer.sharedMaterials = MeshRendererPropertiesList[i].ColoredMaterials;
                 RenderersForRenderTextures.Add(_renderer);
             }
+        }
+
+        transform.position += new Vector3(1000, 1000, 1000);
+        _bounds = RenderersForRenderTextures[0].bounds;
+        for (int i = 1; i < RenderersForRenderTextures.Count; i++)
+        {
+            _bounds.Encapsulate(RenderersForRenderTextures[i].bounds);
         }
 
         M_TargetCamera.I.SetTargets(_bounds);

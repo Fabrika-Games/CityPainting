@@ -28,6 +28,21 @@ public static class CihanUtility
         return null;
     }
 
+    public static GameObject PickObject(Vector2 screenPos, out Vector3 hitPoint)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(screenPos);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            hitPoint = hit.point;
+            return hit.collider.gameObject;
+        }
+
+        hitPoint = Vector3.zero;
+        return null;
+    }
+
     public static GameObject PickObject(Vector2 screenPos, LayerMask layerMask)
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
@@ -53,5 +68,33 @@ public static class CihanUtility
         }
 
         return null;
+    }
+
+    public static Texture2D ConvertToGrayscale(Texture2D graph)
+    {
+        Texture2D grayImg = new Texture2D(graph.width, graph.height);
+        grayImg.SetPixels(graph.GetPixels());
+        grayImg.Apply();
+
+        Color32[] pixels = grayImg.GetPixels32();
+        for (int x = 0; x < grayImg.width; x++)
+        {
+            for (int y = 0; y < grayImg.height; y++)
+            {
+                Color32 pixel = pixels[x + y * grayImg.width];
+                int p = ((256 * 256 + pixel.r) * 256 + pixel.b) * 256 + pixel.g;
+                int b = p % 256;
+                p = Mathf.FloorToInt(p / 256);
+                int g = p % 256;
+                p = Mathf.FloorToInt(p / 256);
+                int r = p % 256;
+                float l = (0.2126f * r / 255f) + 0.7152f * (g / 255f) + 0.0722f * (b / 255f);
+                Color c = new Color(l, l, l, 1);
+                grayImg.SetPixel(x, y, c);
+            }
+        }
+
+        grayImg.Apply();
+        return grayImg;
     }
 }

@@ -1578,6 +1578,7 @@ MonoBehaviour:
   Cubes: {fileID: 7279584911187728062}
   WhiteMaterial: {fileID: 2100000, guid: 7f8bd0c725b224ea8ba1cb0dfb8572f7, type: 2}
   AllCubes: []
+  TargetIndex: -1
 --- !u!1 &4850277382808021033
 GameObject:
   m_ObjectHideFlags: 0
@@ -16860,7 +16861,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7279584911187728062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 381, y: 0, z: -190}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
