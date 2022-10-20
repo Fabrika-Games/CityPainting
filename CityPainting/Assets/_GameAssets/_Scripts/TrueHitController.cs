@@ -14,7 +14,15 @@ public class TrueHitController : MonoBehaviour
         transform.SetParent(_currentCube.transform);
         transform.position = _hitPoint;
         transform.localScale = new Vector3(1, 0, 0);
+
+        for (int i = 0; i < _currentCube.MeshRendererPropertiesList.Count; i++)
+        {
+            ParticleTrigger _pt = M_Pool.I.GetFromPool<ParticleTrigger>();
+            _pt.SetupParticleSystem(_currentCube.MeshRendererPropertiesList[i], Collider);
+        }
+
         List<Material> _aniMats = new List<Material>();
+
         for (int i = 0; i < _currentCube.MeshRendererPropertiesList.Count; i++)
         {
             Renderer _r = _currentCube.MeshRendererPropertiesList[i].Renderer;
@@ -27,21 +35,19 @@ public class TrueHitController : MonoBehaviour
             }
 
             _r.sharedMaterials = _mats;
-            ParticleTrigger _pt = M_Pool.I.GetFromPool<ParticleTrigger>();
-            _pt.SetupParticleSystem(_currentCube.MeshRendererPropertiesList[i], Collider);
         }
 
         for (int i = 0; i < _aniMats.Count; i++)
         {
             _aniMats[i].SetVector("_Position", _hitPoint);
+            _aniMats[i].SetFloat("_Radius", 1);
         }
-
 
         transform.DOScale(new Vector3(30, 30, 30), 2.5f).SetEase(Ease.OutSine).OnUpdate(() =>
         {
             for (int i = 0; i < _aniMats.Count; i++)
             {
-                _aniMats[i].SetFloat("_Radius", transform.localScale.x);
+                _aniMats[i].SetFloat("_Radius", Mathf.Clamp(transform.localScale.x, 1, 100));
             }
         }).OnComplete(() =>
         {

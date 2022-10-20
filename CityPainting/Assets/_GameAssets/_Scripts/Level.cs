@@ -38,13 +38,43 @@ public class Level : MonoBehaviour
                     }
 
                     _dualMaterial.AnimationMaterial = Instantiate(M_Prefabs.I.AnimationMaterialPrefab);
-                    _dualMaterial.AnimationMaterial.SetTexture("_Set1_albedo",
-                        _dualMaterial.WhiteMaterial.mainTexture);
+                    _dualMaterial.AnimationMaterial.SetTexture("_Set1_albedo", _dualMaterial.WhiteMaterial.mainTexture);
                     _dualMaterial.AnimationMaterial.SetTexture("_Set2_albedo",
                         _dualMaterial.ColoredMaterial.mainTexture);
+
+                    _dualMaterial.AnimationMaterial.SetColor("_Set1_albedo_tint", _dualMaterial.WhiteMaterial.color);
+                    _dualMaterial.AnimationMaterial.SetColor("_Set2_albedo_tint", _dualMaterial.ColoredMaterial.color);
+
+                    _dualMaterial.AnimationMaterial.SetFloat("_Set1_metallic_multiplier",
+                        _dualMaterial.WhiteMaterial.GetFloat("_Metallic"));
+                    _dualMaterial.AnimationMaterial.SetFloat("_Set2_metallic_multiplier",
+                        _dualMaterial.ColoredMaterial.GetFloat("_Metallic"));
+
+                    _dualMaterial.AnimationMaterial.SetFloat("_Set1_smoothness",
+                        _dualMaterial.WhiteMaterial.GetFloat("_Glossiness"));
+                    _dualMaterial.AnimationMaterial.SetFloat("_Set2_smoothness",
+                        _dualMaterial.ColoredMaterial.GetFloat("_Glossiness"));
+
+
+                    // ("Set1_albedo_tint", Color) 
+                    // _Set1_normal("Set1_normal", 2D) 
+                    // _Set1_emission("Set1_emission", 2D) 
+                    // _Set1_emission_tint("Set1_emission_tint", Color) 
+                    // _Set1_metallic("Set1_metallic", 2D) 
+                    // _Set1_tiling("Set1_tiling", Vector) 
+                    // _Set1_offset("Set1_offset", Vector) 
+                    // _Set2_normal("Set2_normal", 2D) 
+                    // _Set2_emission("Set2_emission", 2D) 
+                    // _Set2_emission_tint("Set2_emission_tint", Color) = (1, 1, 1, 1)
+                    // _Set2_metallic("Set2_metallic", 2D) 
+                    // _Set2_tiling("Set2_tiling", Vector) 
+                    // _Set2_offset("Set2_offset", Vector) 
+
+
                     DualMaterials.Add(_dualMaterial);
                 }
             }
+
             _mrp.Renderer = _mr;
             Material[] _whiteMaterials = new Material[_mr.sharedMaterials.Length];
             for (int j = 0; j < _mr.sharedMaterials.Length; j++)
@@ -52,6 +82,7 @@ public class Level : MonoBehaviour
                 _whiteMaterials[j] = GetWhiteMaterial(_mr.sharedMaterials[j], out int _index);
                 _mrp.MaterialIndexes.Add(_index);
             }
+
             _mr.sharedMaterials = _whiteMaterials;
         }
 
@@ -111,7 +142,10 @@ public class Level : MonoBehaviour
             GameObject _pickObject = CihanUtility.PickObject(fingerpos, out Vector3 hitPoint);
             if (_pickObject != null)
             {
-                if (_pickObject.TryGetComponent(out MeshRendererProperties _mrp) && _mrp.CurrentCube.IsTarget == true &&
+                if (
+                    _pickObject.TryGetComponent(out MeshRendererProperties _mrp) &&
+                    _mrp.CurrentCube != null &&
+                    _mrp.CurrentCube.IsTarget == true &&
                     _mrp.CurrentCube.CurrentTrueHitController == null)
                 {
                     TrueHitController _trueHitController = Instantiate(M_Prefabs.I.TrueHitControllerPrefab);

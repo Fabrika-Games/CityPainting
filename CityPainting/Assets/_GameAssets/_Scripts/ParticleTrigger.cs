@@ -15,20 +15,14 @@ public class ParticleTrigger : MonoBehaviour
 
     public void SetupParticleSystem(MeshRendererProperties _currentMeshrendererProperties, Collider _colldier)
     {
-        // StartCoroutine(SetupParticleSystem());
-        //
-        // IEnumerator SetupParticleSystem()
-        // {
-            ParticleSystem.TriggerModule _triggerModule = ps.trigger;
-            _triggerModule.SetCollider(0, _colldier);
-            ParticleSystem.ShapeModule _shapeModule = ps.shape;
-            _shapeModule.meshRenderer = _currentMeshrendererProperties.Renderer;
-            ParticleSystem.EmissionModule _emissionModule = ps.emission;
-            _emissionModule.SetBursts(new ParticleSystem.Burst[]
-                { new ParticleSystem.Burst(0.0f, _currentMeshrendererProperties.Renderer.bounds.size.magnitude * 50) });
-            ps.Play();
-        //     yield return new WaitForEndOfFrame();
-        // }
+        ParticleSystem.TriggerModule _triggerModule = ps.trigger;
+        _triggerModule.SetCollider(0, _colldier);
+        ParticleSystem.ShapeModule _shapeModule = ps.shape;
+        _shapeModule.meshRenderer = _currentMeshrendererProperties.Renderer;
+        ParticleSystem.EmissionModule _emissionModule = ps.emission;
+        _emissionModule.SetBursts(new ParticleSystem.Burst[]
+            { new ParticleSystem.Burst(0.0f, _currentMeshrendererProperties.Renderer.bounds.size.magnitude * 50) });
+        ps.Play();
     }
 
     void OnParticleTrigger()
