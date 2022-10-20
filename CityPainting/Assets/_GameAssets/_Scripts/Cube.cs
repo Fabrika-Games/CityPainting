@@ -31,15 +31,16 @@ public class Cube : MonoBehaviour
     [ContextMenu("Colorize")]
     public void Colorize()
     {
-        for (int i = 0; i < MeshRendererPropertiesList.Count; i++)
-        {
-            MeshRendererPropertiesList[i].Renderer.sharedMaterials = MeshRendererPropertiesList[i].ColoredMaterials;
-        }
+        // for (int i = 0; i < MeshRendererPropertiesList.Count; i++)
+        // {
+        //     MeshRendererPropertiesList[i].Renderer.sharedMaterials = MeshRendererPropertiesList[i].ColoredMaterials;
+        // }
     }
 
     public void MakeTarget()
     {
         IsTarget = true;
+        Level _level = M_Level.I.CurrentLevel;
         Bounds _bounds = MeshRendererPropertiesList[0].Renderer.bounds;
         for (int i = 1; i < MeshRendererPropertiesList.Count; i++)
         {
@@ -55,7 +56,15 @@ public class Cube : MonoBehaviour
                 _renderer.gameObject.layer = LayerMask.NameToLayer("Cube");
                 _renderer.transform.localPosition =
                     transform.InverseTransformPoint(MeshRendererPropertiesList[i].Renderer.transform.position);
-                _renderer.sharedMaterials = MeshRendererPropertiesList[i].ColoredMaterials;
+
+                Material[] _materials = new Material[MeshRendererPropertiesList[i].MaterialIndexes.Count];
+                for (int j = 0; j < _materials.Length; j++)
+                {
+                    _materials[j] = _level.DualMaterials[MeshRendererPropertiesList[i].MaterialIndexes[j]]
+                        .ColoredMaterial;
+                }
+
+                _renderer.sharedMaterials = _materials;
                 RenderersForRenderTextures.Add(_renderer);
             }
         }

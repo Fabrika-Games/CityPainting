@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MeshRendererProperties : MonoBehaviour
 {
-    public Material[] ColoredMaterials;
+    // public Material[] ColoredMaterials;
     public Cube CurrentCube;
-    public Renderer Renderer;
+    public MeshRenderer Renderer;
     public List<int> MaterialIndexes = new List<int>();
 }

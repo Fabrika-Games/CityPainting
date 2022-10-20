@@ -45,8 +45,6 @@ public class Level : MonoBehaviour
                     DualMaterials.Add(_dualMaterial);
                 }
             }
-
-            _mrp.ColoredMaterials = _mr.sharedMaterials;
             _mrp.Renderer = _mr;
             Material[] _whiteMaterials = new Material[_mr.sharedMaterials.Length];
             for (int j = 0; j < _mr.sharedMaterials.Length; j++)
