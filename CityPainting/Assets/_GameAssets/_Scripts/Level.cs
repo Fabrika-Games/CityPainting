@@ -164,7 +164,7 @@ public class Level : MonoBehaviour
                     for (int i = 0; i < _count; i++)
                     {
                         _mrp2.CurrentCube.MeshRendererPropertiesList[i].Renderer.transform.DOShakeRotation(0.5f,
-                            new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f)), 150, 90, true).SetDelay(0.2f);
+                            new Vector3(Random.Range(-6f, 6f), 0, Random.Range(-6f, 6f)), 150, 90, true);
                     }
                 }
             }
