@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Cube : MonoBehaviour
 {
@@ -11,10 +12,10 @@ public class Cube : MonoBehaviour
     public bool IsTarget = false;
     public List<Renderer> RenderersForRenderTextures = new List<Renderer>();
     public TrueHitController CurrentTrueHitController;
-    public Vector3 BoundsCenter;
     public int Index = -1;
     public bool isFounded = false;
-
+    public Bounds Bounds;
+    public Bounds BoundsTarget;
     private void Awake()
     {
         MeshRendererPropertiesList = TargetGameObjects.Select(qq => qq.GetComponent<MeshRendererProperties>()).ToList();
@@ -44,13 +45,13 @@ public class Cube : MonoBehaviour
     {
         IsTarget = true;
         Level _level = M_Level.I.CurrentLevel;
-        Bounds _bounds = MeshRendererPropertiesList[0].Renderer.bounds;
+        Bounds = MeshRendererPropertiesList[0].Renderer.bounds;
         for (int i = 1; i < MeshRendererPropertiesList.Count; i++)
         {
-            _bounds.Encapsulate(MeshRendererPropertiesList[i].Renderer.bounds);
+            Bounds.Encapsulate(MeshRendererPropertiesList[i].Renderer.bounds);
         }
 
-        transform.position = _bounds.center;
+        transform.position = Bounds.center;
         if (RenderersForRenderTextures.Count == 0)
         {
             for (int i = 0; i < MeshRendererPropertiesList.Count; i++)
@@ -72,14 +73,13 @@ public class Cube : MonoBehaviour
             }
         }
 
-        BoundsCenter = _bounds.center;
         transform.position += new Vector3(1000, 1000, 1000);
-        _bounds = RenderersForRenderTextures[0].bounds;
+        BoundsTarget = RenderersForRenderTextures[0].bounds;
         for (int i = 1; i < RenderersForRenderTextures.Count; i++)
         {
-            _bounds.Encapsulate(RenderersForRenderTextures[i].bounds);
+            BoundsTarget.Encapsulate(RenderersForRenderTextures[i].bounds);
         }
-        M_TargetCamera.I.SetTargets(_bounds);
+        M_TargetCamera.I.SetTargets(BoundsTarget);
     }
 
     public void Found()
