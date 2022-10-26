@@ -35,7 +35,7 @@ public class Level : MonoBehaviour
                     if (_dualMaterial.WhiteMaterial.mainTexture != null)
                     {
                         Texture2D _grayTexture =
-                            CihanUtility.ConvertToGrayscale((Texture2D)_dualMaterial.WhiteMaterial.mainTexture);
+                            CihanUtility.ConvertToGrayscale((Texture2D)_dualMaterial.WhiteMaterial.mainTexture, 1.25f);
                         _dualMaterial.WhiteMaterial.mainTexture = _grayTexture;
                     }
 

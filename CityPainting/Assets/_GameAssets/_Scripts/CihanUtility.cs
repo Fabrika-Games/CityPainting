@@ -70,7 +70,7 @@ public static class CihanUtility
         return null;
     }
 
-    public static Texture2D ConvertToGrayscale(Texture2D graph)
+    public static Texture2D ConvertToGrayscale(Texture2D graph, float value = 1)
     {
         Texture2D grayImg = new Texture2D(graph.width, graph.height);
         grayImg.SetPixels(graph.GetPixels());
@@ -89,6 +89,7 @@ public static class CihanUtility
                 p = Mathf.FloorToInt(p / 256);
                 int r = p % 256;
                 float l = (0.2126f * r / 255f) + 0.7152f * (g / 255f) + 0.0722f * (b / 255f);
+                l = l * value;
                 Color c = new Color(l, l, l, 1);
                 grayImg.SetPixel(x, y, c);
             }
