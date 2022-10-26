@@ -10,18 +10,19 @@ public class TrueHitController : MonoBehaviour
 
     public void Setup(Cube _currentCube, Vector3 _hitPoint)
     {
+        M_Camera.I.GoToTarget(_currentCube.Bounds);
         Level _level = M_Level.I.CurrentLevel;
         _currentCube.CurrentTrueHitController = this;
         transform.SetParent(_currentCube.transform);
         transform.position = _hitPoint;
         transform.localScale = new Vector3(1, 0, 0);
 
-        int _count = _currentCube.MeshRendererPropertiesList.Count;
-        for (int i = 0; i < _count; i++)
-        {
-            _currentCube.MeshRendererPropertiesList[i].Renderer.transform.DOShakeRotation(4,
-                new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f)), 15, 90, true);
-        }
+        // int _count = _currentCube.MeshRendererPropertiesList.Count;
+        // for (int i = 0; i < _count; i++)
+        // {
+        //     _currentCube.MeshRendererPropertiesList[i].Renderer.transform.DOShakeRotation(4,
+        //         new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f)), 15, 90, true);
+        // }
 
         List<ParticleTrigger> _particleTriggerList = new List<ParticleTrigger>();
         for (int i = 0; i < _currentCube.MeshRendererPropertiesList.Count; i++)
@@ -91,8 +92,6 @@ public class TrueHitController : MonoBehaviour
             Destroy(gameObject);
         });
 
-        // M_Camera.I.GoToTarget(_currentCube.Bounds.center, 1);
-        M_Camera.I.GoToTarget(_currentCube.Bounds);
     }
 
     public void DeleteTrueHitController()

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -149,6 +150,22 @@ public class Level : MonoBehaviour
                 {
                     TrueHitController _trueHitController = Instantiate(M_Prefabs.I.TrueHitControllerPrefab);
                     _trueHitController.Setup(_mrp.CurrentCube, hitPoint);
+                }
+                else if (
+                    _pickObject.TryGetComponent(out MeshRendererProperties _mrp2) &&
+                    _mrp2.CurrentCube != null &&
+                    _mrp2.CurrentCube.IsTarget == false &&
+                    _mrp2.CurrentCube.isFounded == false &&
+                    _mrp2.CurrentCube.CurrentTrueHitController == null)
+                {
+                    M_Camera.I.GoToTarget(_mrp2.CurrentCube.Bounds);
+
+                    int _count = _mrp2.CurrentCube.MeshRendererPropertiesList.Count;
+                    for (int i = 0; i < _count; i++)
+                    {
+                        _mrp2.CurrentCube.MeshRendererPropertiesList[i].Renderer.transform.DOShakeRotation(0.5f,
+                            new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f)), 150, 90, true).SetDelay(0.2f);
+                    }
                 }
             }
         }

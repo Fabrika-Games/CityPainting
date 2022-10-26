@@ -19,6 +19,7 @@ public class Cube : MonoBehaviour
     private void Awake()
     {
         MeshRendererPropertiesList = TargetGameObjects.Select(qq => qq.GetComponent<MeshRendererProperties>()).ToList();
+        SetBounds();
     }
 
     [ContextMenu("RendererOpen")]
@@ -45,11 +46,6 @@ public class Cube : MonoBehaviour
     {
         IsTarget = true;
         Level _level = M_Level.I.CurrentLevel;
-        Bounds = MeshRendererPropertiesList[0].Renderer.bounds;
-        for (int i = 1; i < MeshRendererPropertiesList.Count; i++)
-        {
-            Bounds.Encapsulate(MeshRendererPropertiesList[i].Renderer.bounds);
-        }
 
         transform.position = Bounds.center;
         if (RenderersForRenderTextures.Count == 0)
@@ -80,6 +76,15 @@ public class Cube : MonoBehaviour
             BoundsTarget.Encapsulate(RenderersForRenderTextures[i].bounds);
         }
         M_TargetCamera.I.SetTargets(BoundsTarget);
+    }
+    private void SetBounds()
+    {
+
+        Bounds = MeshRendererPropertiesList[0].Renderer.bounds;
+        for (int i = 1; i < MeshRendererPropertiesList.Count; i++)
+        {
+            Bounds.Encapsulate(MeshRendererPropertiesList[i].Renderer.bounds);
+        }
     }
 
     public void Found()

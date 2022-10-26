@@ -100,15 +100,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultMode: 0
   rightClickDrag: 0
-  middleClickDrag: 0
+  middleClickDrag: 1
   oneFingerDrag: 0
-  focusTweenDuration: 1
+  focusTweenDuration: 0.2
   focusEase: 10
   focusDistanceMultiplier: 1
   focusRadiusMultiplier: 0.5
   followRadiusMultiplier: 0.5
   initDistance: 50
-  minMaxDistance: {x: 20, y: 120}
+  minMaxDistance: {x: 20, y: 200}
   followDistanceMultiplier: 1
   initialRotation: {x: 35, y: 0}
   allowPitchRotation: 1

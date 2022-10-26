@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4439403, g: 0.4931519, b: 0.5722083, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -524,7 +524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1083806504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -765,10 +765,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 167853132}
     m_Modifications:
-    - target: {fileID: 7457187531634064203, guid: a46b294146c804f488b77e6b730096d3, type: 3}
-      propertyPath: minMaxDistance.y
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 7457187531634064205, guid: a46b294146c804f488b77e6b730096d3, type: 3}
       propertyPath: m_Name
       value: TouchCamera
@@ -901,7 +897,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1903853028
 MonoBehaviour:
   m_ObjectHideFlags: 0
