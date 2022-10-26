@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Exoa.Cameras;
 using UnityEngine;
 
 public class M_Camera : MonoBehaviour
 {
-    public Transform CameraParent;
+    public CameraPerspective CameraPerspective;
 
     void Awake()
     {
         II = this;
     }
 
-    public void GoToTarget(Vector3 _pos, float _duration = 0.5f)
+    public void GoToTarget(GameObject _target)
     {
-        CameraParent.DOMove(_pos, _duration).SetEase(Ease.OutExpo);
+        CameraPerspective.FocusCameraOnGameObject(_target);
     }
+
+    // public void GoToTarget(Vector3 _pos, float _duration = 0.5f)
+    // {
+    //     CameraPerspective.FocusCameraOnGameObject();
+    // }
 
 
     public static M_Camera II;
