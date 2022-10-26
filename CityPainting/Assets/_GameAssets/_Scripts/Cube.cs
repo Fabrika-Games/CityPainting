@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class Cube : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class Cube : MonoBehaviour
     public bool isFounded = false;
     public Bounds Bounds;
     public Bounds BoundsTarget;
+    public Vector3 SphereScale = new Vector3(40, 40, 40);
     private void Awake()
     {
         MeshRendererPropertiesList = TargetGameObjects.Select(qq => qq.GetComponent<MeshRendererProperties>()).ToList();
@@ -94,5 +97,41 @@ public class Cube : MonoBehaviour
         {
             Destroy(RenderersForRenderTextures[i].gameObject);
         }
+    }
+    public void Shake()
+    {
+        int _count = MeshRendererPropertiesList.Count;
+        for (int i = 0; i < _count; i++)
+        {
+            MeshRendererProperties _meshRendererProperties = MeshRendererPropertiesList[i];
+            _meshRendererProperties.Renderer.transform.DOKill();
+            _meshRendererProperties.Renderer.transform.localEulerAngles = _meshRendererProperties.LocalEulerAngle;
+            _meshRendererProperties.Renderer.transform.DOShakeRotation(0.5f,
+                new Vector3(Random.Range(-6f, 6f), 0, Random.Range(-6f, 6f)), 150, 90, true);
+        }
+    }
+    private List<Vector3> boundCorners = new List<Vector3>();
+    public void CalculateSphereScale(Vector3 _targetPosition)
+    {
+        boundCorners.Clear();
+        boundCorners.Add(new Vector3(Bounds.min.x, Bounds.min.y, Bounds.min.z));
+        boundCorners.Add(new Vector3(Bounds.max.x, Bounds.min.y, Bounds.min.z));
+        boundCorners.Add(new Vector3(Bounds.min.x, Bounds.max.y, Bounds.min.z));
+        boundCorners.Add(new Vector3(Bounds.max.x, Bounds.max.y, Bounds.min.z));
+        boundCorners.Add(new Vector3(Bounds.min.x, Bounds.min.y, Bounds.max.z));
+        boundCorners.Add(new Vector3(Bounds.max.x, Bounds.min.y, Bounds.max.z));
+        boundCorners.Add(new Vector3(Bounds.min.x, Bounds.max.y, Bounds.max.z));
+        boundCorners.Add(new Vector3(Bounds.max.x, Bounds.max.y, Bounds.max.z));
+        float _distance = 0;
+        for (int i = 0; i < boundCorners.Count; i++)
+        {
+            float _currentDistance = Vector3.Distance(_targetPosition, boundCorners[i]);
+            if (_currentDistance > _distance)
+            {
+                _distance = _currentDistance;
+            }
+        }
+        _distance *= 2;
+        SphereScale = new Vector3(_distance, _distance, _distance);
     }
 }

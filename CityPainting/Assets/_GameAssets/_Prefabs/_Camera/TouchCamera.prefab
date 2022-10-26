@@ -114,7 +114,7 @@ MonoBehaviour:
   allowPitchRotation: 1
   PitchSensitivity: 0.25
   PitchClamp: 1
-  PitchMinMax: {x: 25, y: 90}
+  PitchMinMax: {x: 25, y: 75}
   allowYawRotation: 1
   YawSensitivity: 0.25
 --- !u!114 &7457187531634064244

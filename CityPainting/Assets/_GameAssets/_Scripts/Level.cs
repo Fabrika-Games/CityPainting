@@ -63,6 +63,7 @@ public class Level : MonoBehaviour
             }
 
             _mrp.Renderer = _mr;
+            _mrp.LocalEulerAngle = _mr.transform.localEulerAngles;
             Material[] _whiteMaterials = new Material[_mr.sharedMaterials.Length];
             for (int j = 0; j < _mr.sharedMaterials.Length; j++)
             {
@@ -159,13 +160,8 @@ public class Level : MonoBehaviour
                     _mrp2.CurrentCube.CurrentTrueHitController == null)
                 {
                     M_Camera.I.GoToTarget(_mrp2.CurrentCube.Bounds);
-
-                    int _count = _mrp2.CurrentCube.MeshRendererPropertiesList.Count;
-                    for (int i = 0; i < _count; i++)
-                    {
-                        _mrp2.CurrentCube.MeshRendererPropertiesList[i].Renderer.transform.DOShakeRotation(0.5f,
-                            new Vector3(Random.Range(-6f, 6f), 0, Random.Range(-6f, 6f)), 150, 90, true);
-                    }
+                    _mrp2.CurrentCube.Shake();
+                   
                 }
             }
         }

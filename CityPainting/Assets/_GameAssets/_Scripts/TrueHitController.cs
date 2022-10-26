@@ -7,34 +7,23 @@ using UnityEngine;
 public class TrueHitController : MonoBehaviour
 {
     public Collider Collider;
-
     public void Setup(Cube _currentCube, Vector3 _hitPoint)
     {
+        _currentCube.CalculateSphereScale(_hitPoint);
         M_Camera.I.GoToTarget(_currentCube.Bounds);
         Level _level = M_Level.I.CurrentLevel;
         _currentCube.CurrentTrueHitController = this;
         transform.SetParent(_currentCube.transform);
         transform.position = _hitPoint;
-        transform.localScale = new Vector3(1, 0, 0);
+        transform.localScale = new Vector3(0, 0, 0);
 
-        // int _count = _currentCube.MeshRendererPropertiesList.Count;
-        // for (int i = 0; i < _count; i++)
-        // {
-        //     _currentCube.MeshRendererPropertiesList[i].Renderer.transform.DOShakeRotation(4,
-        //         new Vector3(Random.Range(-3f, 3f), 0, Random.Range(-3f, 3f)), 15, 90, true);
-        // }
 
         List<ParticleTrigger> _particleTriggerList = new List<ParticleTrigger>();
         for (int i = 0; i < _currentCube.MeshRendererPropertiesList.Count; i++)
         {
-            // int _poolCount = M_Pool.I.GetPool<ParticleTrigger>().Count;
 
 
             ParticleTrigger _pt = M_Pool.I.GetFromPool<ParticleTrigger>();
-            // if (_pt == null)
-            // {
-            //     M_Pool.I.GetPool<ParticleTrigger>().SetCount(_poolCount + 1);
-            // }
             _pt.SetupParticleSystem(_currentCube.MeshRendererPropertiesList[i], Collider);
             _particleTriggerList.Add(_pt);
         }
@@ -61,7 +50,7 @@ public class TrueHitController : MonoBehaviour
             _aniMats[i].SetFloat("_Radius", 1);
         }
 
-        transform.DOScale(new Vector3(40, 40, 40), 4f).SetEase(Ease.OutSine).OnUpdate(() =>
+        transform.DOScale(_currentCube.SphereScale, 4f).SetEase(Ease.OutSine).OnUpdate(() =>
         {
             for (int i = 0; i < _aniMats.Count; i++)
             {
@@ -97,4 +86,6 @@ public class TrueHitController : MonoBehaviour
     public void DeleteTrueHitController()
     {
     }
+
+
 }
