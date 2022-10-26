@@ -46,61 +46,72 @@ Shader "AdultLink/SphereDissolve"
         #include "UnityShaderVariables.cginc"
         #pragma target 3.0
         #pragma surface surf Standard keepalpha addshadow fullforwardshadows
-        struct Input
-        {
+        struct Input {
             float2 uv_texcoord;
             float3 worldPos;
         };
 
         uniform sampler2D _Set1_normal;
-        uniform float2 _Set1_tiling;
-        uniform float2 _Set1_offset;
-        uniform float3 _Position;
-        uniform float _Bordernoisescale;
-        uniform float3 _Noisespeed;
-        uniform float _Radius;
-        uniform float _Invert;
+        uniform float2    _Set1_tiling;
+        uniform float2    _Set1_offset;
+        uniform float3    _Position;
+        uniform float     _Bordernoisescale;
+        uniform float3    _Noisespeed;
+        uniform float     _Radius;
+        uniform float     _Invert;
         uniform sampler2D _Set2_normal;
-        uniform float2 _Set2_tiling;
-        uniform float2 _Set2_offset;
-        uniform float4 _Set1_albedo_tint;
+        uniform float2    _Set2_tiling;
+        uniform float2    _Set2_offset;
+        uniform float4    _Set1_albedo_tint;
         uniform sampler2D _Set1_albedo;
         uniform sampler2D _Set2_albedo;
-        uniform float4 _Set2_albedo_tint;
-        uniform float4 _Set1_emission_tint;
+        uniform float4    _Set2_albedo_tint;
+        uniform float4    _Set1_emission_tint;
         uniform sampler2D _Set1_emission;
         uniform sampler2D _Set2_emission;
-        uniform float4 _Set2_emission_tint;
-        uniform float4 _Bordercolor;
-        uniform float _Borderradius;
-        uniform float _Set1_metallic_multiplier;
+        uniform float4    _Set2_emission_tint;
+        uniform float4    _Bordercolor;
+        uniform float     _Borderradius;
+        uniform float     _Set1_metallic_multiplier;
         uniform sampler2D _Set1_metallic;
         uniform sampler2D _Set2_metallic;
-        uniform float _Set2_metallic_multiplier;
-        uniform float _Set1_smoothness;
-        uniform float _Set2_smoothness;
+        uniform float     _Set2_metallic_multiplier;
+        uniform float     _Set1_smoothness;
+        uniform float     _Set2_smoothness;
 
 
-        float3 mod3D289(float3 x) { return x - floor(x / 289.0) * 289.0; }
+        float3 mod3D289(float3 x)
+        {
+            return x - floor(x / 289.0) * 289.0;
+        }
 
-        float4 mod3D289(float4 x) { return x - floor(x / 289.0) * 289.0; }
+        float4 mod3D289(float4 x)
+        {
+            return x - floor(x / 289.0) * 289.0;
+        }
 
-        float4 permute(float4 x) { return mod3D289((x * 34.0 + 1.0) * x); }
+        float4 permute(float4 x)
+        {
+            return mod3D289((x * 34.0 + 1.0) * x);
+        }
 
-        float4 taylorInvSqrt(float4 r) { return 1.79284291400159 - r * 0.85373472095314; }
+        float4 taylorInvSqrt(float4 r)
+        {
+            return 1.79284291400159 - r * 0.85373472095314;
+        }
 
         float snoise(float3 v)
         {
             const float2 C = float2(1.0 / 6.0, 1.0 / 3.0);
-            float3 i = floor(v + dot(v, C.yyy));
-            float3 x0 = v - i + dot(i, C.xxx);
-            float3 g = step(x0.yzx, x0.xyz);
-            float3 l = 1.0 - g;
-            float3 i1 = min(g.xyz, l.zxy);
-            float3 i2 = max(g.xyz, l.zxy);
-            float3 x1 = x0 - i1 + C.xxx;
-            float3 x2 = x0 - i2 + C.yyy;
-            float3 x3 = x0 - 0.5;
+            float3       i = floor(v + dot(v, C.yyy));
+            float3       x0 = v - i + dot(i, C.xxx);
+            float3       g = step(x0.yzx, x0.xyz);
+            float3       l = 1.0 - g;
+            float3       i1 = min(g.xyz, l.zxy);
+            float3       i2 = max(g.xyz, l.zxy);
+            float3       x1 = x0 - i1 + C.xxx;
+            float3       x2 = x0 - i2 + C.yyy;
+            float3       x3 = x0 - 0.5;
             i = mod3D289(i);
             float4 p = permute(
                 permute(permute(i.z + float4(0.0, i1.z, i2.z, 1.0)) + i.y + float4(0.0, i1.y, i2.y, 1.0)) + i.x +
@@ -140,28 +151,35 @@ Shader "AdultLink/SphereDissolve"
             float2 uv_TexCoord90 = i.uv_texcoord * _Set1_tiling + _Set1_offset;
             float2 Set1_UVs150 = uv_TexCoord90;
             float3 ase_worldPos = i.worldPos;
-            float temp_output_15_0 = distance(_Position, ase_worldPos);
-            float simplePerlin3D26 = snoise((_Bordernoisescale * (ase_worldPos + (_Noisespeed * _Time.y))));
-            float temp_output_39_0 = (simplePerlin3D26 + _Radius);
-            float temp_output_14_0 = (1.0 - saturate((temp_output_15_0 / temp_output_39_0)));
-            float temp_output_5_0 = step(temp_output_14_0, 0.5);
-            float Inverting152 = lerp(0.0, 1.0, _Invert);
-            float temp_output_4_0 = step(0.5, temp_output_14_0);
-            float Set1Mask51 = ((temp_output_5_0 * (1.0 - Inverting152)) + (Inverting152 * temp_output_4_0));
-            float Set2Mask52 = ((temp_output_5_0 * Inverting152) + ((1.0 - Inverting152) * temp_output_4_0));
+            float  temp_output_15_0 = distance(_Position, ase_worldPos);
+            float  simplePerlin3D26 = snoise((_Bordernoisescale * (ase_worldPos + (_Noisespeed * _Time.y))));
+            float  temp_output_39_0 = (simplePerlin3D26 + _Radius);
+            float  temp_output_14_0 = (1.0 - saturate((temp_output_15_0 / temp_output_39_0)));
+            float  temp_output_5_0 = step(temp_output_14_0, 0.5);
+            float  Inverting152 = lerp(0.0, 1.0, _Invert);
+            float  temp_output_4_0 = step(0.5, temp_output_14_0);
+            float  Set1Mask51 = ((temp_output_5_0 * (1.0 - Inverting152)) + (Inverting152 * temp_output_4_0));
+            float  Set2Mask52 = ((temp_output_5_0 * Inverting152) + ((1.0 - Inverting152) * temp_output_4_0));
             float2 uv_TexCoord96 = i.uv_texcoord * _Set2_tiling + _Set2_offset;
             float2 Set2_UVs136 = uv_TexCoord96;
             float3 Normal146 = ((UnpackNormal(tex2D(_Set1_normal, Set1_UVs150)) * Set1Mask51) + (Set2Mask52 *
                 UnpackNormal(tex2D(_Set2_normal, Set2_UVs136))));
             o.Normal = Normal146;
-            float4 Albedo145 = ((_Set1_albedo_tint * tex2D(_Set1_albedo, Set1_UVs150) * Set1Mask51) + (Set2Mask52 *
-                tex2D(_Set2_albedo, Set2_UVs136) * _Set2_albedo_tint));
-            o.Albedo = Albedo145.rgb;
+
             float Border49 = (temp_output_5_0 - step(
                 (1.0 - saturate((temp_output_15_0 / (_Borderradius + temp_output_39_0)))), 0.5));
-            float4 Emission147 = ((_Set1_emission_tint * tex2D(_Set1_emission, Set1_UVs150) * Set1Mask51) + (Set2Mask52
-                * tex2D(_Set2_emission, Set2_UVs136) * _Set2_emission_tint) + (_Bordercolor * Border49));
-            o.Emission = Emission147.rgb;
+            // float4 Emission147 = (
+            //     (_Set1_emission_tint * tex2D(_Set1_emission, Set1_UVs150) * Set1Mask51) +
+            //     (_Set2_emission_tint * tex2D(_Set2_emission, Set2_UVs136) * Set2Mask52) +
+            //     ((_Bordercolor - float4(1, 1, 1, 1)) * Border49)
+            // );
+            float4 Albedo145 = (
+                (_Set1_albedo_tint * tex2D(_Set1_albedo, Set1_UVs150) * Set1Mask51) +
+                (_Set2_albedo_tint * tex2D(_Set2_albedo, Set2_UVs136) * Set2Mask52) +
+                ((_Bordercolor - float4(1, 1, 1, 1)) * Border49)
+            );
+            // o.Emission = Emission147.rgb;
+            o.Albedo = Albedo145.rgb;
             float4 Metallic148 = ((_Set1_metallic_multiplier * tex2D(_Set1_metallic, Set1_UVs150) * Set1Mask51) + (
                 Set2Mask52 * tex2D(_Set2_metallic, Set2_UVs136) * _Set2_metallic_multiplier));
             o.Metallic = Metallic148.r;

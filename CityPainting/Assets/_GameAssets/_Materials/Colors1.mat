@@ -22,7 +22,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Set1_albedo:
-        m_Texture: {fileID: 2800000, guid: 6c267535de2cbfd4e831f642b05d9ecf, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0041d5dc154d1a348b6cf9a1d218c763, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Set1_emission:
@@ -73,7 +73,7 @@ Material:
     - _Set2_smoothness: 0.892
     - __dirty: 1
     m_Colors:
-    - _Bordercolor: {r: 1, g: 0, b: 0, a: 1}
+    - _Bordercolor: {r: 0.9224963, g: 0, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Noisespeed: {r: 0, g: 0, b: 0, a: 0}
     - _Position: {r: 0, g: -5, b: 0, a: 0}

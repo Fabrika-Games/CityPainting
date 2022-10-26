@@ -79,7 +79,6 @@ public class Cube : MonoBehaviour
         {
             _bounds.Encapsulate(RenderersForRenderTextures[i].bounds);
         }
-
         M_TargetCamera.I.SetTargets(_bounds);
     }
 

@@ -35,9 +35,22 @@ public class M_TargetCamera : MonoBehaviour
     {
         this.targets = targets;
     }
-
+    public Transform TargetCameraContainer;
     public void SetTargets(Bounds _b)
     {
+        float _sizeVal = _b.size.x;
+
+        if (_sizeVal <= _b.size.y)
+        {
+            _sizeVal = _b.size.y;
+        }
+        if (_sizeVal <= _b.size.z)
+        {
+            _sizeVal = _b.size.z;
+        }
+        _b.size = new Vector3(_sizeVal, _sizeVal, _sizeVal);
+        Yaw = 45;
+
         targets[0].transform.position = new Vector3(_b.min.x, _b.min.y, _b.min.z);
         targets[1].transform.position = new Vector3(_b.max.x, _b.min.y, _b.min.z);
         targets[2].transform.position = new Vector3(_b.min.x, _b.max.y, _b.min.z);
@@ -46,16 +59,21 @@ public class M_TargetCamera : MonoBehaviour
         targets[5].transform.position = new Vector3(_b.max.x, _b.min.y, _b.max.z);
         targets[6].transform.position = new Vector3(_b.min.x, _b.max.y, _b.max.z);
         targets[7].transform.position = new Vector3(_b.max.x, _b.max.y, _b.max.z);
+        TargetCameraContainer.transform.position = _b.center;
+        positionAndRotation = TargetPositionAndRotation();
+        CurrentCamera.transform.position = positionAndRotation.Position;
+        CurrentCamera.transform.rotation = positionAndRotation.Rotation;
     }
 
     private PositionAndRotation positionAndRotation;
 
     private void Update()
     {
-        Yaw += Time.deltaTime * 10;
-        positionAndRotation = TargetPositionAndRotation();
-        CurrentCamera.transform.position = positionAndRotation.Position;
-        CurrentCamera.transform.rotation = positionAndRotation.Rotation;
+        // Yaw += Time.deltaTime * 10;
+        // positionAndRotation = TargetPositionAndRotation();
+        // CurrentCamera.transform.position = positionAndRotation.Position;
+        // CurrentCamera.transform.rotation = positionAndRotation.Rotation;
+        TargetCameraContainer.Rotate(new Vector3(0, 20, 0) * Time.deltaTime);
     }
 
     private void Awake()
