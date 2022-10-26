@@ -215,10 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: fb1377c6c3a6a410bbeea9b5ff5fdd79, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 92477924}
+  MaterialIndexes: 
 --- !u!65 &92477927
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -267,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &92477931
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5198,10 +5198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: fb1377c6c3a6a410bbeea9b5ff5fdd79, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 280184581}
+  MaterialIndexes: 
 --- !u!65 &280184584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5250,6 +5249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &280184588
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -10181,10 +10181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: 87a059ac3be574701a4e7eb14e8cf47d, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 319201680}
+  MaterialIndexes: 
 --- !u!65 &319201683
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10233,6 +10232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &319201687
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -15164,10 +15164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: 87a059ac3be574701a4e7eb14e8cf47d, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 526621370}
+  MaterialIndexes: 
 --- !u!65 &526621373
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15216,6 +15215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &526621377
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -20245,10 +20245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: 87a059ac3be574701a4e7eb14e8cf47d, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 780933973}
+  MaterialIndexes: 
 --- !u!65 &780933976
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20297,6 +20296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &780933980
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -25228,10 +25228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: fb1377c6c3a6a410bbeea9b5ff5fdd79, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 1075858861}
+  MaterialIndexes: 
 --- !u!65 &1075858864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25280,6 +25279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &1075858868
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -30305,10 +30305,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: fb1377c6c3a6a410bbeea9b5ff5fdd79, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 1168073584}
+  MaterialIndexes: 
 --- !u!65 &1168073587
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30357,6 +30356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &1168073591
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -35288,10 +35288,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: fb1377c6c3a6a410bbeea9b5ff5fdd79, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 1181796125}
+  MaterialIndexes: 
 --- !u!65 &1181796128
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35340,6 +35339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &1181796134
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -40271,10 +40271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: fb1377c6c3a6a410bbeea9b5ff5fdd79, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 1216427343}
+  MaterialIndexes: 
 --- !u!65 &1216427346
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40323,6 +40322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &1216427350
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -45254,10 +45254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: fb1377c6c3a6a410bbeea9b5ff5fdd79, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 1282487026}
+  MaterialIndexes: 
 --- !u!65 &1282487029
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45306,6 +45305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &1282487033
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -50237,10 +50237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: 87a059ac3be574701a4e7eb14e8cf47d, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 1391252954}
+  MaterialIndexes: 
 --- !u!65 &1391252957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50289,6 +50288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &1391252961
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -55265,10 +55265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: fb1377c6c3a6a410bbeea9b5ff5fdd79, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 1558449932}
+  MaterialIndexes: 
 --- !u!65 &1558449935
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55317,6 +55316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &1558449939
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -60248,10 +60248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: fb1377c6c3a6a410bbeea9b5ff5fdd79, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 1588308222}
+  MaterialIndexes: 
 --- !u!65 &1588308225
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60300,6 +60299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &1588308229
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -65231,10 +65231,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63621fd4b2e73496e829c9d27aac9893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColoredMaterials:
-  - {fileID: 2100000, guid: fb1377c6c3a6a410bbeea9b5ff5fdd79, type: 2}
   CurrentCube: {fileID: 0}
   Renderer: {fileID: 1784544493}
+  MaterialIndexes: 
 --- !u!65 &1784544496
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -65283,6 +65282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7566cf3bd3fd2e548b18e6704fb8aee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ps: {fileID: 0}
 --- !u!198 &1784544500
 ParticleSystem:
   m_ObjectHideFlags: 0
