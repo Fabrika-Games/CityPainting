@@ -92,7 +92,7 @@ public class TrueHitController : MonoBehaviour
         });
 
         // M_Camera.I.GoToTarget(_currentCube.Bounds.center, 1);
-        M_Camera.I.GoToTarget(_currentCube.gameObject);
+        M_Camera.I.GoToTarget(_currentCube.Bounds);
     }
 
     public void DeleteTrueHitController()

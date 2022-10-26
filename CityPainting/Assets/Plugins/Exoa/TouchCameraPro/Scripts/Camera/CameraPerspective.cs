@@ -8,9 +8,7 @@ namespace Exoa.Cameras
 {
     public class CameraPerspective : CameraPerspBase
     {
-
-        [Header("ROTATION")]
-        public Vector2 initialRotation = new Vector2(35, 0);
+        [Header("ROTATION")] public Vector2 initialRotation = new Vector2(35, 0);
         public bool allowPitchRotation = true;
         private float Pitch;
         public float PitchSensitivity = 0.25f;
@@ -36,7 +34,6 @@ namespace Exoa.Cameras
 
             finalRotation = Quaternion.Euler(currentPitch, currentYaw, 0.0f);
             finalPosition = CalculateNewPosition(finalOffset, finalRotation, finalDistance);
-
         }
 
 
@@ -59,8 +56,12 @@ namespace Exoa.Cameras
 
             if (IsInputMatching(InputMap.Translate))
             {
-                worldPointFingersCenter = ClampPointsXZ(HeightScreenDepth.Convert(Inputs.screenPointAnyFingerCountCenter));
-                worldPointFingersDelta = Vector3.ClampMagnitude(HeightScreenDepth.ConvertDelta(Inputs.lastScreenPointAnyFingerCountCenter, Inputs.screenPointAnyFingerCountCenter, gameObject), maxTranslationSpeed);
+                worldPointFingersCenter =
+                    ClampPointsXZ(HeightScreenDepth.Convert(Inputs.screenPointAnyFingerCountCenter));
+                worldPointFingersDelta =
+                    Vector3.ClampMagnitude(
+                        HeightScreenDepth.ConvertDelta(Inputs.lastScreenPointAnyFingerCountCenter,
+                            Inputs.screenPointAnyFingerCountCenter, gameObject), maxTranslationSpeed);
 
                 Vector3 vecFingersCenterToCamera = (finalPosition - worldPointFingersCenter);
                 float vecFingersCenterToCameraDistance = vecFingersCenterToCamera.magnitude * pinchRatio;
@@ -92,7 +93,8 @@ namespace Exoa.Cameras
             else if (scrollRatio != 1)
             {
                 finalOffset = worldPointCameraCenter;
-                finalDistance = CalculateClampedDistance(finalPosition, worldPointCameraCenter, minMaxDistance, scrollRatio);
+                finalDistance =
+                    CalculateClampedDistance(finalPosition, worldPointCameraCenter, minMaxDistance, scrollRatio);
                 finalPosition = CalculateNewPosition(worldPointCameraCenter, finalRotation, finalDistance);
             }
             else
@@ -101,6 +103,7 @@ namespace Exoa.Cameras
                 {
                     Rotate(Inputs.oneFingerScaledPixelDelta);
                 }
+
                 finalDistance = CalculateClampedDistance(finalPosition, worldPointCameraCenter, minMaxDistance);
                 finalRotation = Quaternion.Euler(currentPitch, currentYaw, 0.0f);
                 finalPosition = CalculateNewPosition(finalOffset, finalRotation, finalDistance);
@@ -116,16 +119,15 @@ namespace Exoa.Cameras
 
 
             ApplyToCamera();
-
         }
-
 
 
         override public void ResetCamera()
         {
             StopFollow();
 
-            DOTween.To(() => finalDistance, x => finalDistance = x, initDistance, focusTweenDuration).SetEase(focusEase);
+            DOTween.To(() => finalDistance, x => finalDistance = x, initDistance, focusTweenDuration)
+                .SetEase(focusEase);
             Quaternion currentRot = finalRotation;
             float currentDist = finalDistance;
             Vector3 currentOffset = finalOffset;
@@ -133,24 +135,23 @@ namespace Exoa.Cameras
             float lerp = 0;
             Tween t = DOTween.To(() => lerp, x => lerp = x, 1, focusTweenDuration).SetEase(focusEase);
             t.OnUpdate(() =>
-            {
-                finalOffset = Vector3.Lerp(currentOffset, initOffset, lerp);
-                finalRotation = Quaternion.Lerp(currentRot, initRotation, lerp);
-                finalDistance = Mathf.Lerp(currentDist, initDistance, lerp);
-                finalPosition = CalculateNewPosition(finalOffset, finalRotation, finalDistance);
-                ApplyToCamera();
-            })
-            .OnComplete(() =>
-            {
-                currentPitch = Pitch = initialRotation.x;
-                currentYaw = Yaw = initialRotation.y;
-                disableMoves = false;
-            });
+                {
+                    finalOffset = Vector3.Lerp(currentOffset, initOffset, lerp);
+                    finalRotation = Quaternion.Lerp(currentRot, initRotation, lerp);
+                    finalDistance = Mathf.Lerp(currentDist, initDistance, lerp);
+                    finalPosition = CalculateNewPosition(finalOffset, finalRotation, finalDistance);
+                    ApplyToCamera();
+                })
+                .OnComplete(() =>
+                {
+                    currentPitch = Pitch = initialRotation.x;
+                    currentYaw = Yaw = initialRotation.y;
+                    disableMoves = false;
+                });
         }
 
 
         #region EVENTS
-
 
         override protected void OnBeforeSwitchPerspective(bool orthoMode)
         {
@@ -167,10 +168,6 @@ namespace Exoa.Cameras
 
         #region UTILS
 
-
-
-
-
         public void Rotate(Vector2 delta)
         {
             var sensitivity = GetRotationSensitivity();
@@ -180,32 +177,25 @@ namespace Exoa.Cameras
                 deltaYaw = delta.x * YawSensitivity * sensitivity;
                 Yaw += deltaYaw;
             }
+
             if (allowPitchRotation)
             {
                 deltaPitch = -delta.y * PitchSensitivity * sensitivity;
                 Pitch += deltaPitch;
             }
+
             currentPitch = Mathf.Clamp(Pitch, PitchMinMax.x, PitchMinMax.y);
             currentYaw = Yaw;
         }
 
-
-
-
-
-
-
-
-
         #endregion
-
 
 
         #region FOCUS
 
-        override public void FocusCameraOnGameObject(GameObject go)
+        override public void FocusCameraOnGameObject(Bounds b)
         {
-            Bounds b = go.GetBoundsRecursive();
+            // Bounds b = go.GetBoundsRecursive();
 
             if (b.size == Vector3.zero && b.center == Vector3.zero)
                 return;
@@ -235,21 +225,20 @@ namespace Exoa.Cameras
             StopFollow();
 
 
-
             if (targetOffset != finalOffset || finalDistance != targetDistance)
             {
                 disableMoves = true;
-                DOTween.To(() => finalDistance, x => finalDistance = x, targetDistance, focusTweenDuration).SetEase(focusEase);
-                DOTween.To(() => finalOffset, x => finalOffset = x, targetOffset, focusTweenDuration).SetEase(focusEase).OnUpdate(() =>
-                {
-                    finalPosition = CalculateNewPosition(finalOffset, finalRotation, finalDistance);
-                    ApplyToCamera();
-                }).OnComplete(() =>
-                {
-                    disableMoves = false;
-                });
+                DOTween.To(() => finalDistance, x => finalDistance = x, targetDistance, focusTweenDuration)
+                    .SetEase(focusEase);
+                DOTween.To(() => finalOffset, x => finalOffset = x, targetOffset, focusTweenDuration).SetEase(focusEase)
+                    .OnUpdate(() =>
+                    {
+                        finalPosition = CalculateNewPosition(finalOffset, finalRotation, finalDistance);
+                        ApplyToCamera();
+                    }).OnComplete(() => { disableMoves = false; });
             }
         }
+
         #endregion
 
 

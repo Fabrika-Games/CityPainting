@@ -1,4 +1,5 @@
-﻿using Exoa.Events;
+﻿using Exoa.Designer;
+using Exoa.Events;
 using Lean.Common;
 
 public class FocusOnClick : LeanSelectableBehaviour
@@ -12,8 +13,9 @@ public class FocusOnClick : LeanSelectableBehaviour
         if (follow)
             CameraEvents.OnRequestObjectFollow?.Invoke(gameObject, focusOnFollow);
         else
-            CameraEvents.OnRequestObjectFocus?.Invoke(gameObject);
+            CameraEvents.OnRequestObjectFocus?.Invoke(gameObject.GetBoundsRecursive());
     }
+
     protected override void OnDeselected(LeanSelect select)
     {
         print("OnDeselect " + gameObject.name);

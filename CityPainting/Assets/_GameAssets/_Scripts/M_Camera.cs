@@ -13,9 +13,9 @@ public class M_Camera : MonoBehaviour
         II = this;
     }
 
-    public void GoToTarget(GameObject _target)
+    public void GoToTarget(Bounds _b)
     {
-        CameraPerspective.FocusCameraOnGameObject(_target);
+        CameraPerspective.FocusCameraOnGameObject(_b);
     }
 
     // public void GoToTarget(Vector3 _pos, float _duration = 0.5f)

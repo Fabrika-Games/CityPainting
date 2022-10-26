@@ -216,7 +216,7 @@ namespace Exoa.Cameras
         public float focusDistanceMultiplier = 1f;
         public float focusRadiusMultiplier = 1f;
 
-        virtual public void FocusCameraOnGameObject(GameObject go)
+        virtual public void FocusCameraOnGameObject(Bounds b)
         {
             StopFollow();
         }

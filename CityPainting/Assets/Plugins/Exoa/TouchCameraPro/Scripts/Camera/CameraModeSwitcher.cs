@@ -165,17 +165,17 @@ namespace Exoa.Cameras
         #endregion
 
         #region FOCUS
-        public void FocusCameraOnGameObject(GameObject go)
+        public void FocusCameraOnGameObject(Bounds b)
         {
             StopFollow();
 
             if (orthoMode)
             {
-                camOrtho.FocusCameraOnGameObject(go);
+                camOrtho.FocusCameraOnGameObject(b);
             }
             else
             {
-                camPersp.FocusCameraOnGameObject(go);
+                camPersp.FocusCameraOnGameObject(b);
             }
         }
         #endregion

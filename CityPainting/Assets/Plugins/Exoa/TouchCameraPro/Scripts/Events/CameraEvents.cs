@@ -7,7 +7,7 @@ namespace Exoa.Events
 		public enum Action { SwitchPerspective, DisableCameraMoves, Help, ResetCameraPositionRotation };
 
 		public delegate void OnCameraBoolEvent(Action action, bool active);
-		public delegate void OnCameraGameObjectEvent(GameObject obj);
+		public delegate void OnCameraGameObjectEvent(Bounds b);
 		public delegate void OnCameraGameObjectBoolEvent(GameObject obj, bool focusOnFollow);
 		public delegate void OnSwitchPerspectiveHandler(bool orthoMode);
 

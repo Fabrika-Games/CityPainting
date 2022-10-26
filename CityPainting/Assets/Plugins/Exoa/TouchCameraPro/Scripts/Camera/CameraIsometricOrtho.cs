@@ -200,9 +200,9 @@ namespace Exoa.Cameras
 
         #region FOCUS
 
-        override public void FocusCameraOnGameObject(GameObject go)
+        override public void FocusCameraOnGameObject(Bounds b)
         {
-            Bounds b = go.GetBoundsRecursive();
+            // Bounds b = go.GetBoundsRecursive();
 
             if (b.size == Vector3.zero && b.center == Vector3.zero)
                 return;
