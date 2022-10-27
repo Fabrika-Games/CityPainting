@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -17,11 +18,45 @@ public class M_Camera : MonoBehaviour
     {
         CameraPerspective.FocusCameraOnGameObject(_b);
     }
+    private void OnEnable()
+    {
+        M_Observer.OnGameCreate += GameCreate;
+        M_Observer.OnGameStart += GameStart;
+        M_Observer.OnGameFail += GameFail;
+        M_Observer.OnGameComplete += GameComplete;
+    }
+    private void OnDisable()
+    {
+        M_Observer.OnGameCreate -= GameCreate;
+        M_Observer.OnGameStart -= GameStart;
+        M_Observer.OnGameFail += GameFail;
+        M_Observer.OnGameComplete += GameComplete;
+    }
+    private void GameCreate()
+    {
+        StartCoroutine(GameCreate());
 
-    // public void GoToTarget(Vector3 _pos, float _duration = 0.5f)
-    // {
-    //     CameraPerspective.FocusCameraOnGameObject();
-    // }
+        IEnumerator GameCreate()
+        {
+            CameraPerspective.enabled = true;
+            yield return new WaitForEndOfFrame();
+            CameraPerspective.enabled = false;
+        }
+    }
+    private void GameStart()
+    {
+        CameraPerspective.enabled = true;
+    }
+    private void GameFail()
+    {
+        CameraPerspective.enabled = false;
+    }
+    private void GameComplete()
+    {
+        CameraPerspective.enabled = false;
+    }
+
+
 
 
     public static M_Camera II;

@@ -16,6 +16,19 @@ public class M_Observer : MonoBehaviour
     public static Action<Cube> OnFalseHitAnimation;
     public static Action OnTrueHitAnimationStart;
     public static Action OnTrueHitAnimationComplete;
+
+    public static GameStatus CurrentGameStatus;
+
+    public enum GameStatus
+    {
+        MainMenu,
+        InGame,
+        LevelComplete,
+        LevelFail
+
+    }
+
+
     private void Awake()
     {
         II = this;
@@ -50,26 +63,31 @@ public class M_Observer : MonoBehaviour
     private void GameCreate()
     {
         //print("GameCreate");
+        CurrentGameStatus = GameStatus.MainMenu;
     }
 
     private void GameReady()
     {
         //print("GameReady");
+        CurrentGameStatus = GameStatus.MainMenu;
     }
 
     private void GameStart()
     {
         //print("GameStart");
+        CurrentGameStatus = GameStatus.InGame;
     }
 
     private void GameFail()
     {
         //print("GameFail");
+        CurrentGameStatus = GameStatus.LevelFail;
     }
 
     private void GameComplete()
     {
         //print("GameComplete");
+        CurrentGameStatus = GameStatus.LevelComplete;
     }
 
     private void GameRetry()

@@ -46,13 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a5cc34d95d84008a816511aca7493e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pitch: 25
+  Pitch: 10
   Yaw: 0
   Roll: 0
-  PaddingLeft: 0
-  PaddingRight: 0
-  PaddingUp: 0
-  PaddingDown: 0
+  PaddingLeft: -1
+  PaddingRight: -1
+  PaddingUp: -1
+  PaddingDown: -1
   CurrentCamera: {fileID: 3047968649488878292}
   targets:
   - {fileID: 3047968648795988843}
@@ -408,7 +408,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 8
+  field of view: 50
   orthographic: 0
   orthographic size: 7
   m_Depth: -1
