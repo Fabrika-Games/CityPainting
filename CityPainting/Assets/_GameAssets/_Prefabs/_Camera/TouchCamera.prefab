@@ -45,7 +45,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.9245283, g: 0.9245283, b: 0.9245283, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4bae9f191feb65489d66b855d676048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMode: 0
+  defaultMode: 1
   rightClickDrag: 0
   middleClickDrag: 1
   oneFingerDrag: 0

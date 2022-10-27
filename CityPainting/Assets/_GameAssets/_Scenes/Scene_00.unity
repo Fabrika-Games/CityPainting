@@ -765,18 +765,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 167853132}
     m_Modifications:
-    - target: {fileID: 7457187531634064200, guid: a46b294146c804f488b77e6b730096d3, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7457187531634064200, guid: a46b294146c804f488b77e6b730096d3, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7457187531634064200, guid: a46b294146c804f488b77e6b730096d3, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7457187531634064205, guid: a46b294146c804f488b77e6b730096d3, type: 3}
       propertyPath: m_Name
       value: TouchCamera
