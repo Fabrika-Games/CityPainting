@@ -21,7 +21,7 @@ public class ParticleTrigger : MonoBehaviour
         _shapeModule.meshRenderer = _currentMeshrendererProperties.Renderer;
         ParticleSystem.EmissionModule _emissionModule = ps.emission;
         _emissionModule.SetBursts(new ParticleSystem.Burst[]
-            { new ParticleSystem.Burst(0.0f, _currentMeshrendererProperties.Renderer.bounds.size.magnitude * 50) });
+            { new ParticleSystem.Burst(0.0f, _currentMeshrendererProperties.Renderer.bounds.size.magnitude * 15) });
         ps.Play();
     }
 
@@ -33,7 +33,7 @@ public class ParticleTrigger : MonoBehaviour
         for (int i = 0; i < numEnter; i++)
         {
             ParticleSystem.Particle p = enterList[i];
-            p.startSize = 0.2f;
+            p.startSize = 0.75f;
             p.velocity = new Vector3(Random.Range(-1f, 1f), 5, Random.Range(-1f, 1f));
             p.startLifetime = Random.Range(0.45f, 0.65f);
             p.remainingLifetime = p.startLifetime;
