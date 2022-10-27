@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 
 public class M_Observer : MonoBehaviour
@@ -74,8 +75,14 @@ public class M_Observer : MonoBehaviour
 
     private void GameStart()
     {
-        //print("GameStart");
-        CurrentGameStatus = GameStatus.InGame;
+        StartCoroutine(GameStart());
+
+        IEnumerator GameStart()
+        {
+            yield return new WaitForEndOfFrame();
+            CurrentGameStatus = GameStatus.InGame;
+        }
+
     }
 
     private void GameFail()

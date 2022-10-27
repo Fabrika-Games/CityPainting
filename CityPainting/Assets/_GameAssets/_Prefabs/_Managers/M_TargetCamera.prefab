@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a5cc34d95d84008a816511aca7493e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pitch: 10
+  Pitch: 20
   Yaw: 0
   Roll: 0
   PaddingLeft: -1
