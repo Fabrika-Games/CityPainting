@@ -138,7 +138,7 @@ public class Level : MonoBehaviour
             return;
         }
 
-        if (tapcount == 2)
+        if (tapcount == 1)
         {
             GameObject _pickObject = CihanUtility.PickObject(fingerpos, out Vector3 hitPoint);
             if (_pickObject != null)
