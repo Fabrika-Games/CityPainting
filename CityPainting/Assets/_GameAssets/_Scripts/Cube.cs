@@ -43,7 +43,15 @@ public class Cube : MonoBehaviour
         // {
         //     MeshRendererPropertiesList[i].Renderer.sharedMaterials = MeshRendererPropertiesList[i].ColoredMaterials;
         // }
+        for (int i = 0; i < TargetGameObjects.Count; i++)
+        {
+            TargetGameObjects[i].enabled = true;
+        }
+#if UNITY_EDITOR
+        UnityEditor.EditorUtility.SetDirty(gameObject.GetComponentInParent<Level>());
+#endif    
     }
+
 
     public void MakeTarget()
     {
