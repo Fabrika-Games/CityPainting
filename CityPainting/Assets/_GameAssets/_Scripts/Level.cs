@@ -64,6 +64,7 @@ public class Level : MonoBehaviour
 
             _mrp.Renderer = _mr;
             _mrp.LocalEulerAngle = _mr.transform.localEulerAngles;
+            _mrp.TopMidPoint = new Vector3(_mr.bounds.center.x, _mr.bounds.max.y, _mr.bounds.center.z);
             Material[] _whiteMaterials = new Material[_mr.sharedMaterials.Length];
             for (int j = 0; j < _mr.sharedMaterials.Length; j++)
             {
@@ -161,7 +162,9 @@ public class Level : MonoBehaviour
                 {
                     M_Camera.I.GoToTarget(_mrp2.CurrentCube.Bounds);
                     _mrp2.CurrentCube.Shake();
-                   
+                    M_Observer.OnFalseHitAnimation?.Invoke(_mrp2.CurrentCube);
+
+
                 }
             }
         }

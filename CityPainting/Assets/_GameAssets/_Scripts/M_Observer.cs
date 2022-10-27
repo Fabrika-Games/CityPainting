@@ -13,6 +13,8 @@ public class M_Observer : MonoBehaviour
     public static Action OnGameRetry;
     public static Action OnGameContinue;
     public static Action OnGameNextLevel;
+    public static Action<Cube> OnFalseHitAnimation;
+    public static Action OnTrueHitAnimationStart;
     public static Action OnTrueHitAnimationComplete;
     private void Awake()
     {
@@ -104,5 +106,5 @@ public class M_Observer : MonoBehaviour
         }
     }
 
- 
+
 }
