@@ -160,7 +160,7 @@ public class Level : MonoBehaviour
                     _mrp2.CurrentCube.isFounded == false &&
                     _mrp2.CurrentCube.CurrentTrueHitController == null)
                 {
-                    M_Camera.I.GoToTarget(_mrp2.CurrentCube.Bounds);
+                    // M_Camera.I.GoToTarget(_mrp2.CurrentCube.Bounds);
                     _mrp2.CurrentCube.Shake();
                     M_Observer.OnFalseHitAnimation?.Invoke(_mrp2.CurrentCube);
 
