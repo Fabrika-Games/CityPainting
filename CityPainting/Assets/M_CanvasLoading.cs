@@ -7,9 +7,8 @@ using UnityEngine;
 public class M_CanvasLoading : MonoBehaviour
 {
     public RectTransform CanvasRectTransform;
-    public RectTransform RadialGradient;
 
-
+    private List<Vector3> beginLocalPositions = new List<Vector3>();
 
     void OnEnable()
     {
@@ -34,16 +33,36 @@ public class M_CanvasLoading : MonoBehaviour
     public void LoadingOpen()
     {
         CanvasRectTransform.gameObject.SetActive(true);
-        RadialGradient.anchoredPosition = new Vector2(-RadialGradient.sizeDelta.x * 0.5f - CanvasRectTransform.rect.width * 0.5f, RadialGradient.sizeDelta.y * 0.5f + CanvasRectTransform.rect.height * 0.5f);
-        RadialGradient.DOAnchorPos(Vector2.zero, 1f).SetEase(Ease.OutSine);
+        for (int i = 0; i < CanvasRectTransform.childCount; i++)
+        {
+            Transform _t = CanvasRectTransform.GetChild(i);
+            Vector3 _beginLocalPosition = beginLocalPositions[i];
+            _t.localPosition = _beginLocalPosition + _beginLocalPosition.normalized * 1500;
+            _t.DOLocalMove(_beginLocalPosition, 1).SetEase(Ease.OutSine);
+        }
     }
     public void LoadingClose()
     {
         CanvasRectTransform.gameObject.SetActive(true);
-        RadialGradient.DOAnchorPos(new Vector2(-RadialGradient.sizeDelta.x * 0.5f - CanvasRectTransform.rect.width * 0.5f, RadialGradient.sizeDelta.y * 0.5f + CanvasRectTransform.rect.height * 0.5f), 1f).SetEase(Ease.InSine).OnComplete(() =>
+        for (int i = 0; i < CanvasRectTransform.childCount; i++)
         {
-            CanvasRectTransform.gameObject.SetActive(false);
-        });
+            Transform _t = CanvasRectTransform.GetChild(i);
+            Vector3 _beginLocalPosition = beginLocalPositions[i];
+            if (i != CanvasRectTransform.childCount - 1)
+            {
+                _t.DOLocalMove(_beginLocalPosition + _beginLocalPosition.normalized * 1500, 1).SetEase(Ease.OutSine);
+
+            }
+            else
+            {
+                _t.DOLocalMove(_beginLocalPosition + _beginLocalPosition.normalized * 1500, 1).SetEase(Ease.OutSine).OnComplete(() =>
+                {
+                    CanvasRectTransform.gameObject.SetActive(false);
+
+                });
+
+            }
+        }
     }
     private void Start()
     {
@@ -52,6 +71,10 @@ public class M_CanvasLoading : MonoBehaviour
     private void Awake()
     {
         II = this;
+        for (int i = 0; i < CanvasRectTransform.childCount; i++)
+        {
+            beginLocalPositions.Add(CanvasRectTransform.GetChild(i).localPosition);
+        }
     }
     public static M_CanvasLoading II;
 
