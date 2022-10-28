@@ -16,6 +16,7 @@ public class Level : MonoBehaviour
     public int CubeCount;
     public int TrueHitCount = 0;
     public Bounds CurrentBounds;
+    public Bounds BeginBounds = new Bounds(Vector3.zero, new Vector3(5, 5, 5));
 
     private void Awake()
     {

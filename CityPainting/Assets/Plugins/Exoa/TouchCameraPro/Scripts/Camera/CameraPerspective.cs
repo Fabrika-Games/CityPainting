@@ -116,7 +116,7 @@ namespace Exoa.Cameras
                 initRotation = FinalRotation;
                 initDataSaved = true;
             }
-
+           
 
             ApplyToCamera();
         }

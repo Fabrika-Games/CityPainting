@@ -36,7 +36,7 @@ public class M_Camera : MonoBehaviour
     }
     private void GameReady()
     {
-        // GoToTarget(M_Level.I.CurrentLevel.CurrentBounds);
+        GoToTarget(M_Level.I.CurrentLevel.BeginBounds);
     }
     private void GameCreate()
     {
@@ -51,10 +51,20 @@ public class M_Camera : MonoBehaviour
     private void GameComplete()
     {
         GoToTarget(M_Level.I.CurrentLevel.CurrentBounds);
+        DOTween.To((xx) => { levelCompleteRotateSpeed = xx; }, 90, 4, 1.25f).SetEase(Ease.OutSine);
+        // DOTween.To((xx) => { levelCompleteRotateSpeed = xx; }, 0, 180, 0.25f).SetEase(Ease.OutSine).OnComplete(() =>
+        // {
+        // });
     }
 
-
-
+    private float levelCompleteRotateSpeed = 2;
+    private void Update()
+    {
+        if (M_Observer.CurrentGameStatus == M_Observer.GameStatus.LevelComplete)
+        {
+            CameraPerspective.Rotate(new Vector2(levelCompleteRotateSpeed, 0));
+        }
+    }
 
     public static M_Camera II;
 

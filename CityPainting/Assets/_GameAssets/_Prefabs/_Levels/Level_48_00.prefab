@@ -1795,6 +1795,9 @@ MonoBehaviour:
   CurrentBounds:
     m_Center: {x: -6.7430725, y: 2.402936, z: 20.606438}
     m_Extent: {x: 70.18891, y: 4.028221, z: 56.559235}
+  BeginBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 5, y: 5, z: 5}
 --- !u!1 &4850277382808021033
 GameObject:
   m_ObjectHideFlags: 0
