@@ -105,7 +105,7 @@ Material:
     - _DistanceFade: 20
     - _EdgeFoamDepth: 0.32
     - _EdgeFoamEnabled: 1
-    - _EdgeFoamNoiseScale: 2.13
+    - _EdgeFoamNoiseScale: 0.05
     - _Float0: 0.15
     - _Float1: 2
     - _Float2: 0.15
@@ -138,7 +138,7 @@ Material:
     - _ReflectionEnabled: 1
     - _ReflectionsIntensity: 1.33
     - _Refraction: 0
-    - _RefractionContribution: 0
+    - _RefractionContribution: 0.186
     - _RefractionEnabled: 0
     - _RefractionIntensity: 1.71
     - _Roughness: 0.316
