@@ -204,6 +204,44 @@ public class Level : MonoBehaviour
         TargetIndex = _index;
         AllCubes[_index].MakeTarget();
     }
+
+
+
+    [ContextMenu("DeleteNullGameObject")]
+    public void DeleteNullGameObject()
+    {
+        Transform[] _transforms = MeshRenderersContainer.GetComponentsInChildren<Transform>();
+        for (int i = _transforms.Length - 1; i >= 0; i--)
+        {
+            if (_transforms[i].GetComponent<MeshRenderer>() == null && _transforms[i].childCount == 0)
+            {
+                DestroyImmediate(_transforms[i].gameObject);
+            }
+        }
+        _transforms = MeshRenderersContainer.GetComponentsInChildren<Transform>();
+        for (int i = _transforms.Length - 1; i >= 0; i--)
+        {
+            if (!(UnityEditor.PrefabUtility.GetPrefabParent(_transforms[i].gameObject) != null && UnityEditor.PrefabUtility.GetPrefabObject(_transforms[i].gameObject) != null))
+            {
+                if (_transforms[i].GetComponents<Collider>().Length > 0)
+                {
+                    for (int j = _transforms[i].GetComponents<Collider>().Length - 1; j >= 0; j--)
+                    {
+                        DestroyImmediate(_transforms[i].GetComponents<Collider>()[j]);
+                    }
+                }
+            }
+
+        }
+
+#if UNITY_EDITOR
+        UnityEditor.EditorUtility.SetDirty(gameObject.GetComponentInParent<Level>());
+#endif
+    }
+
+
+
+
 }
 
 [System.Serializable]
