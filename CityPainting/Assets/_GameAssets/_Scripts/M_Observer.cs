@@ -120,7 +120,7 @@ public class M_Observer : MonoBehaviour
         {
             if (II == null)
             {
-                GameObject _g = GameObject.Find("M_Game");
+                GameObject _g = GameObject.Find("M_Observer");
                 if (_g != null)
                 {
                     II = _g.GetComponent<M_Observer>();

@@ -40,26 +40,17 @@ public class M_Camera : MonoBehaviour
     }
     private void GameCreate()
     {
-        StartCoroutine(GameCreate());
 
-        IEnumerator GameCreate()
-        {
-            CameraPerspective.enabled = true;
-            yield return new WaitForEndOfFrame();
-            CameraPerspective.enabled = false;
-        }
     }
     private void GameStart()
     {
-        CameraPerspective.enabled = true;
     }
     private void GameFail()
     {
-        CameraPerspective.enabled = false;
     }
     private void GameComplete()
     {
-        // GoToTarget(M_Level.I.CurrentLevel.CurrentBounds);
+        GoToTarget(M_Level.I.CurrentLevel.CurrentBounds);
     }
 
 

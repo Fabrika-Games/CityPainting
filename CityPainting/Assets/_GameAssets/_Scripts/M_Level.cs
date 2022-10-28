@@ -62,8 +62,17 @@ public class M_Level : MonoBehaviour
 
     private void GameCreate()
     {
-        DestroyAllLevelItem();
-        CurrentLevel = Instantiate(LevelPrefabs[LevelNumber % LevelPrefabs.Length]);
+        StartCoroutine(GameCreate());
+
+        IEnumerator GameCreate()
+        {
+            M_CanvasLoading.I.LoadingOpen();
+            yield return new WaitForSeconds(1f);
+            DestroyAllLevelItem();
+            CurrentLevel = Instantiate(LevelPrefabs[LevelNumber % LevelPrefabs.Length]);
+        }
+
+
     }
 
     private void GameReady()
