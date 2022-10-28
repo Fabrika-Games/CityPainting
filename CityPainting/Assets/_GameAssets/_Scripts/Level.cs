@@ -16,6 +16,7 @@ public class Level : MonoBehaviour
     public int CubeCount;
     public int TrueHitCount = 0;
     public Bounds CurrentBounds;
+
     private void Awake()
     {
         AllCubes = Cubes.GetComponentsInChildren<Cube>();
@@ -127,10 +128,10 @@ public class Level : MonoBehaviour
         M_Observer.OnTrueHitAnimationComplete -= TrueHitAnimationComplete;
         M_Observer.OnTrueHitAnimationStart -= TrueHitAnimationStart;
     }
+
     private void TrueHitAnimationStart()
     {
         TrueHitCount++;
-
     }
 
     private void TrueHitAnimationComplete()
@@ -153,10 +154,12 @@ public class Level : MonoBehaviour
         {
             return;
         }
+
         if (M_Observer.CurrentGameStatus != M_Observer.GameStatus.InGame)
         {
             return;
         }
+
         if (tapcount == 1)
         {
             GameObject _pickObject = CihanUtility.PickObject(fingerpos, out Vector3 hitPoint);
@@ -182,8 +185,6 @@ public class Level : MonoBehaviour
                     // M_Camera.I.GoToTarget(_mrp2.CurrentCube.Bounds);
                     _mrp2.CurrentCube.Shake();
                     M_Observer.OnFalseHitAnimation?.Invoke(_mrp2.CurrentCube);
-
-
                 }
             }
         }
@@ -208,7 +209,6 @@ public class Level : MonoBehaviour
 
         TargetCubeChange(0);
         M_Observer.OnGameReady?.Invoke();
-
     }
 
     public void TargetCubeChange(int _index = -1)
@@ -224,10 +224,10 @@ public class Level : MonoBehaviour
     }
 
 
-
     [ContextMenu("DeleteNullGameObject")]
     public void DeleteNullGameObject()
     {
+#if UNITY_EDITOR
         Transform[] _transforms = MeshRenderersContainer.GetComponentsInChildren<Transform>();
         for (int i = _transforms.Length - 1; i >= 0; i--)
         {
@@ -236,10 +236,12 @@ public class Level : MonoBehaviour
                 DestroyImmediate(_transforms[i].gameObject);
             }
         }
+
         _transforms = MeshRenderersContainer.GetComponentsInChildren<Transform>();
         for (int i = _transforms.Length - 1; i >= 0; i--)
         {
-            if (!(UnityEditor.PrefabUtility.GetPrefabParent(_transforms[i].gameObject) != null && UnityEditor.PrefabUtility.GetPrefabObject(_transforms[i].gameObject) != null))
+            if (!(UnityEditor.PrefabUtility.GetPrefabParent(_transforms[i].gameObject) != null &&
+                  UnityEditor.PrefabUtility.GetPrefabObject(_transforms[i].gameObject) != null))
             {
                 if (_transforms[i].GetComponents<Collider>().Length > 0)
                 {
@@ -251,7 +253,6 @@ public class Level : MonoBehaviour
             }
         }
 
-#if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(gameObject.GetComponentInParent<Level>());
 #endif
     }
@@ -278,8 +279,6 @@ public class Level : MonoBehaviour
         UnityEditor.EditorUtility.SetDirty(gameObject);
 #endif
     }
-
-
 
 
     public bool IsLevelComplete()
