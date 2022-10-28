@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 7095853626925746777}
   - component: {fileID: 7564177809366120948}
   m_Layer: 0
-  m_Name: Level_01
+  m_Name: Level_04_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   AllCubes: []
   TargetIndex: -1
   DualMaterials: []
+  CubeCount: 4
 --- !u!1 &5149096973377473869
 GameObject:
   m_ObjectHideFlags: 0

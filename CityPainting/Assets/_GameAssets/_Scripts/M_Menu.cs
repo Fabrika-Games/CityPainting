@@ -8,8 +8,8 @@ public class M_Menu : MonoBehaviour
 
     public ScreenUI.Id[] GameCompleteFlow = new ScreenUI.Id[]
     {
-        ScreenIds.LevelEndMultiplyCollectedMoney,
-        ScreenIds.LevelEndUnlock,
+        // ScreenIds.LevelEndMultiplyCollectedMoney,
+        // ScreenIds.LevelEndUnlock,
         ScreenIds.MainMenu
     };
 

@@ -13,6 +13,7 @@ public class TargetRawImage : MonoBehaviour
     private Vector3 beginScale;
     private RectTransform rectTransform;
     private Vector3 beginAnchorPosition;
+    private Level currentlevel;
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -20,6 +21,7 @@ public class TargetRawImage : MonoBehaviour
         beginAnchorPosition = rectTransform.anchoredPosition;
         trueImage.transform.localScale = Vector3.zero;
         falseImage.transform.localScale = Vector3.zero;
+        currentlevel = M_Level.I.CurrentLevel;
 
     }
     void OnEnable()
@@ -46,7 +48,10 @@ public class TargetRawImage : MonoBehaviour
     }
     private void TrueHitAnimationComplete()
     {
-        rectTransform.DOAnchorPos3D(beginAnchorPosition, 0.25f).SetEase(Ease.OutExpo);
+        if (!currentlevel.IsLevelComplete())
+        {
+            rectTransform.DOAnchorPos3D(beginAnchorPosition, 0.25f).SetEase(Ease.OutExpo);
+        }
 
     }
     private void TrueHitAnimationStart()

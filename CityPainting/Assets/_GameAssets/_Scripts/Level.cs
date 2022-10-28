@@ -13,7 +13,8 @@ public class Level : MonoBehaviour
     public Cube[] AllCubes;
     public int TargetIndex = -1;
     public List<DualMaterial> DualMaterials = new List<DualMaterial>();
-
+    public int CubeCount;
+    public int TrueHitCount = 0;
     private void Awake()
     {
         AllCubes = Cubes.GetComponentsInChildren<Cube>();
@@ -114,12 +115,19 @@ public class Level : MonoBehaviour
     {
         FingerGestures.OnFingerTap += FingerGestures_OnFingerTap;
         M_Observer.OnTrueHitAnimationComplete += TrueHitAnimationComplete;
+        M_Observer.OnTrueHitAnimationStart += TrueHitAnimationStart;
     }
 
     private void OnDisable()
     {
         FingerGestures.OnFingerTap -= FingerGestures_OnFingerTap;
         M_Observer.OnTrueHitAnimationComplete -= TrueHitAnimationComplete;
+        M_Observer.OnTrueHitAnimationStart -= TrueHitAnimationStart;
+    }
+    private void TrueHitAnimationStart()
+    {
+        TrueHitCount++;
+
     }
 
     private void TrueHitAnimationComplete()
@@ -128,6 +136,11 @@ public class Level : MonoBehaviour
         if (_cube != null)
         {
             TargetCubeChange(_cube.Index);
+        }
+
+        if (IsLevelComplete())
+        {
+            M_Observer.OnGameComplete?.Invoke();
         }
     }
 
@@ -239,8 +252,23 @@ public class Level : MonoBehaviour
     }
 
 
+    [ContextMenu("SetCubeCount")]
+    public void SetCubeCount()
+    {
+        CubeCount = Cubes.GetComponentsInChildren<Cube>().Length;
+        gameObject.name += CubeCount.ToString("000");
+#if UNITY_EDITOR
+        UnityEditor.EditorUtility.SetDirty(gameObject);
+#endif
+    }
 
 
+
+
+    public bool IsLevelComplete()
+    {
+        return TrueHitCount == CubeCount;
+    }
 }
 
 [System.Serializable]
