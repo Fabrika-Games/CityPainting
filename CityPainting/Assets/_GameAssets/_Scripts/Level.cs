@@ -231,7 +231,6 @@ public class Level : MonoBehaviour
                     }
                 }
             }
-
         }
 
 #if UNITY_EDITOR
