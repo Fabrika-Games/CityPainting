@@ -1791,6 +1791,10 @@ MonoBehaviour:
   TargetIndex: -1
   DualMaterials: []
   CubeCount: 48
+  TrueHitCount: 0
+  CurrentBounds:
+    m_Center: {x: -6.7430725, y: 2.402936, z: 20.606438}
+    m_Extent: {x: 70.18891, y: 4.028221, z: 56.559235}
 --- !u!1 &4850277382808021033
 GameObject:
   m_ObjectHideFlags: 0
@@ -17044,7 +17048,7 @@ BoxCollider:
   m_GameObject: {fileID: 6878686921436418118}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 140.37782, y: 8.056442, z: 113.11847}
   m_Center: {x: -6.7430725, y: 2.402936, z: 20.606438}

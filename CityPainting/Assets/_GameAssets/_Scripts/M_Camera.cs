@@ -21,6 +21,7 @@ public class M_Camera : MonoBehaviour
     private void OnEnable()
     {
         M_Observer.OnGameCreate += GameCreate;
+        M_Observer.OnGameReady += GameReady;
         M_Observer.OnGameStart += GameStart;
         M_Observer.OnGameFail += GameFail;
         M_Observer.OnGameComplete += GameComplete;
@@ -28,9 +29,14 @@ public class M_Camera : MonoBehaviour
     private void OnDisable()
     {
         M_Observer.OnGameCreate -= GameCreate;
+        M_Observer.OnGameReady -= GameReady;
         M_Observer.OnGameStart -= GameStart;
-        M_Observer.OnGameFail += GameFail;
-        M_Observer.OnGameComplete += GameComplete;
+        M_Observer.OnGameFail -= GameFail;
+        M_Observer.OnGameComplete -= GameComplete;
+    }
+    private void GameReady()
+    {
+        // GoToTarget(M_Level.I.CurrentLevel.CurrentBounds);
     }
     private void GameCreate()
     {
@@ -53,7 +59,7 @@ public class M_Camera : MonoBehaviour
     }
     private void GameComplete()
     {
-        
+        // GoToTarget(M_Level.I.CurrentLevel.CurrentBounds);
     }
 
 

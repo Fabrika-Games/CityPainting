@@ -64,7 +64,6 @@ public class M_Level : MonoBehaviour
     {
         DestroyAllLevelItem();
         CurrentLevel = Instantiate(LevelPrefabs[LevelNumber % LevelPrefabs.Length]);
-        M_Observer.OnGameReady?.Invoke();
     }
 
     private void GameReady()

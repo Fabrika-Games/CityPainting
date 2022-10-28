@@ -15,6 +15,7 @@ public class Level : MonoBehaviour
     public List<DualMaterial> DualMaterials = new List<DualMaterial>();
     public int CubeCount;
     public int TrueHitCount = 0;
+    public Bounds CurrentBounds;
     private void Awake()
     {
         AllCubes = Cubes.GetComponentsInChildren<Cube>();
@@ -97,6 +98,7 @@ public class Level : MonoBehaviour
             }
         }
     }
+
 
     private Material GetWhiteMaterial(Material sharedMaterial)
     {
@@ -205,6 +207,8 @@ public class Level : MonoBehaviour
         }
 
         TargetCubeChange(0);
+        M_Observer.OnGameReady?.Invoke();
+
     }
 
     public void TargetCubeChange(int _index = -1)
@@ -258,6 +262,18 @@ public class Level : MonoBehaviour
     {
         CubeCount = Cubes.GetComponentsInChildren<Cube>().Length;
         gameObject.name += CubeCount.ToString("000");
+#if UNITY_EDITOR
+        UnityEditor.EditorUtility.SetDirty(gameObject);
+#endif
+    }
+
+    [ContextMenu("SetCurrentBounds")]
+    public void SetCurrentBounds()
+    {
+        GetComponentInChildren<InteriorWalls>().GetComponent<Collider>().enabled = true;
+        CurrentBounds = GetComponentInChildren<InteriorWalls>().GetComponent<Collider>().bounds;
+        GetComponentInChildren<InteriorWalls>().GetComponent<Collider>().enabled = false;
+
 #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(gameObject);
 #endif
