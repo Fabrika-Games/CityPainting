@@ -158,7 +158,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 900}
+  m_SizeDelta: {x: 0, y: 577.0819}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &289030672277882384
 CanvasRenderer:
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8509804}
+  m_Color: {r: 0, g: 0.5647059, b: 0.8784314, a: 0.8509804}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -496,6 +496,7 @@ MonoBehaviour:
   rawImage: {fileID: 598098895876982719}
   trueImage: {fileID: 5367310338441665415}
   falseImage: {fileID: 1470852682583548718}
+  beginAnchorPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &989887186730036957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -878,6 +879,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 224349177789100604}
     m_Modifications:
+    - target: {fileID: 69644641645821234, guid: 3ee8e881c00f55948ba02bbb6ef10051, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1662579044956977292, guid: 3ee8e881c00f55948ba02bbb6ef10051, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -968,11 +973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127376930398359524, guid: 3ee8e881c00f55948ba02bbb6ef10051, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9127376930398359524, guid: 3ee8e881c00f55948ba02bbb6ef10051, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9127376930398359524, guid: 3ee8e881c00f55948ba02bbb6ef10051, type: 3}
       propertyPath: m_SizeDelta.x
@@ -984,7 +989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127376930398359524, guid: 3ee8e881c00f55948ba02bbb6ef10051, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -33.45
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ee8e881c00f55948ba02bbb6ef10051, type: 3}

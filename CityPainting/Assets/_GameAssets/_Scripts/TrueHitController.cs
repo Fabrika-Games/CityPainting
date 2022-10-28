@@ -30,7 +30,7 @@ public class TrueHitController : MonoBehaviour
             for (int i = 0; i < _meshRendererPropertiesListCount; i++)
             {
                 // _currentCube.MeshRendererPropertiesList[i].transform.DOShakePosition(1f, new Vector3(0, Random.Range(0.1f, 0.25f), 0), 30).SetDelay(0.5f * i / _meshRendererPropertiesListCount).SetEase(Ease.InOutExpo);
-                _currentCube.MeshRendererPropertiesList[i].Renderer.transform.DOMove(_currentCube.MeshRendererPropertiesList[i].Position + new Vector3(0, 3, 0), 0.3f).SetDelay(0.2f * i / _meshRendererPropertiesListCount).SetEase(Ease.OutBack);
+                _currentCube.MeshRendererPropertiesList[i].Renderer.transform.DOMove(_currentCube.MeshRendererPropertiesList[i].Position + new Vector3(0, 3, 0), 0.3f).SetDelay(0.2f * i / _meshRendererPropertiesListCount).SetEase(Ease.InOutBack);
             }
             yield return new WaitForSeconds(0.1f);
             List<ParticleTrigger> _particleTriggerList = new List<ParticleTrigger>();
