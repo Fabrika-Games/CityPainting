@@ -168,17 +168,18 @@ Shader "AdultLink/SphereDissolve"
 
             float Border49 = (temp_output_5_0 - step(
                 (1.0 - saturate((temp_output_15_0 / (_Borderradius + temp_output_39_0)))), 0.5));
-            // float4 Emission147 = (
-            //     (_Set1_emission_tint * tex2D(_Set1_emission, Set1_UVs150) * Set1Mask51) +
-            //     (_Set2_emission_tint * tex2D(_Set2_emission, Set2_UVs136) * Set2Mask52) +
-            //     ((_Bordercolor - float4(1, 1, 1, 1)) * Border49)
-            // );
+            float4 Emission147 = (
+                (_Set1_emission_tint * tex2D(_Set1_emission, Set1_UVs150) * Set1Mask51) +
+                (_Set2_emission_tint * tex2D(_Set2_emission, Set2_UVs136) * Set2Mask52) +
+                ((_Bordercolor) * Border49)
+            );
             float4 Albedo145 = (
                 (_Set1_albedo_tint * tex2D(_Set1_albedo, Set1_UVs150) * Set1Mask51) +
-                (_Set2_albedo_tint * tex2D(_Set2_albedo, Set2_UVs136) * Set2Mask52) +
+                (_Set2_albedo_tint * tex2D(_Set2_albedo, Set2_UVs136) * Set2Mask52)
+                +
                 ((_Bordercolor - float4(1, 1, 1, 1)) * Border49)
             );
-            // o.Emission = Emission147.rgb;
+            o.Emission = Emission147.rgb;
             o.Albedo = Albedo145.rgb;
             float4 Metallic148 = ((_Set1_metallic_multiplier * tex2D(_Set1_metallic, Set1_UVs150) * Set1Mask51) + (
                 Set2Mask52 * tex2D(_Set2_metallic, Set2_UVs136) * _Set2_metallic_multiplier));
