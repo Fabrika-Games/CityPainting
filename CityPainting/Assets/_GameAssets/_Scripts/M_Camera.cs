@@ -53,7 +53,7 @@ public class M_Camera : MonoBehaviour
     }
     private void GameComplete()
     {
-        CameraPerspective.enabled = false;
+        
     }
 
 

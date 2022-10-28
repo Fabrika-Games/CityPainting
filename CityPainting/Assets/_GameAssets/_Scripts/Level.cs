@@ -65,6 +65,7 @@ public class Level : MonoBehaviour
 
             _mrp.Renderer = _mr;
             _mrp.LocalEulerAngle = _mr.transform.localEulerAngles;
+            _mrp.Position = _mr.transform.position;
             _mrp.TopMidPoint = new Vector3(_mr.bounds.center.x, _mr.bounds.max.y, _mr.bounds.center.z);
             Material[] _whiteMaterials = new Material[_mr.sharedMaterials.Length];
             for (int j = 0; j < _mr.sharedMaterials.Length; j++)

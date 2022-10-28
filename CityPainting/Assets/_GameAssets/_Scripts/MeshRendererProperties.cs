@@ -9,6 +9,7 @@ public class MeshRendererProperties : MonoBehaviour
     public Cube CurrentCube;
     public MeshRenderer Renderer;
     public Vector3 LocalEulerAngle;
+    public Vector3 Position;
     public List<int> MaterialIndexes = new List<int>();
     [FormerlySerializedAs("TopMidpoint")]
     public Vector3 TopMidPoint;

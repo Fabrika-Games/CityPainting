@@ -12,7 +12,7 @@ public class TargetRawImage : MonoBehaviour
     [SerializeField] private Image falseImage;
     private Vector3 beginScale;
     private RectTransform rectTransform;
-    private Vector3 beginAnchorPosition;
+    [SerializeField] private Vector3 beginAnchorPosition;
     private Level currentlevel;
     private void Awake()
     {
@@ -21,15 +21,17 @@ public class TargetRawImage : MonoBehaviour
         beginAnchorPosition = rectTransform.anchoredPosition;
         trueImage.transform.localScale = Vector3.zero;
         falseImage.transform.localScale = Vector3.zero;
-        currentlevel = M_Level.I.CurrentLevel;
 
     }
     void OnEnable()
     {
+        currentlevel = M_Level.I.CurrentLevel;
         rawImage.texture = M_TargetCamera.I.CurrentCamera.targetTexture;
         M_Observer.OnTrueHitAnimationStart += TrueHitAnimationStart;
         M_Observer.OnTrueHitAnimationComplete += TrueHitAnimationComplete;
         M_Observer.OnFalseHitAnimation += FalseHitAnimation;
+        rectTransform.DOAnchorPos3D(beginAnchorPosition, 0.25f).SetEase(Ease.OutExpo);
+
     }
 
     private void OnDisable()
@@ -38,6 +40,7 @@ public class TargetRawImage : MonoBehaviour
         M_Observer.OnTrueHitAnimationComplete -= TrueHitAnimationComplete;
         M_Observer.OnFalseHitAnimation -= FalseHitAnimation;
     }
+
     private void FalseHitAnimation(Cube _cube)
     {
         falseImage.transform.localScale = Vector3.zero;
