@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class M_Haptic : MonoBehaviour
 {
+    public HapticClip TrueHitHapticClip;
 
     public bool IsHapticActive
     {
@@ -96,13 +97,22 @@ public class M_Haptic : MonoBehaviour
         HapticPatterns.PlayPreset(HapticPatterns.PresetType.Failure);
 
     }
+
     public void TrueHit()
     {
         if (!IsHapticActive)
         {
             return;
         }
-        HapticPatterns.PlayPreset(HapticPatterns.PresetType.Success);
+        StartCoroutine(TrueHit());
+
+        IEnumerator TrueHit()
+        {
+            HapticPatterns.PlayPreset(HapticPatterns.PresetType.Success);
+            yield return new WaitForSeconds(0.225f);
+            HapticController.Play(TrueHitHapticClip);
+
+        }
 
     }
 

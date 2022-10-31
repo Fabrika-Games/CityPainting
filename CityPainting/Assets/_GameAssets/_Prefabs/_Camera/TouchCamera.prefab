@@ -162,7 +162,7 @@ MonoBehaviour:
   FadeToRadius: 2
   FadeToPowerExponent: 1
   FadeToThickness: 1
-  BlurEnabled: 1
+  BlurEnabled: 0
   BlurRadius: 3
   BlurPasses: 1
   BlurSharpness: 15
