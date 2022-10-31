@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -32,7 +33,19 @@ public class Finger3D : MonoBehaviour
         }
         Close();
     }
+    private void OnEnable()
+    {
+        M_Observer.OnGameCreate += GameCreate;
+    }
+    private void OnDisable()
+    {
+        M_Observer.OnGameCreate -= GameCreate;
+    }
+    private void GameCreate()
+    {
+        HandContainer.localPosition = new Vector3(1000, 1000, 1000);
 
+    }
     public void Open(RaycastHit raycastHit)
     {
         if (raycastHit.collider != null)
