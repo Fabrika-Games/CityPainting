@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 081540ae8207180478dc33d9d8d87f9c, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7457187531634064203, guid: a46b294146c804f488b77e6b730096d3, type: 3}
   m_PrefabInstance: {fileID: 1761488885}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296809009}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4bae9f191feb65489d66b855d676048, type: 3}
@@ -576,23 +576,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc6eb2da4243b4bdc8b78b0d87275336, type: 3}
---- !u!1 &1296809009 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7457187531634064205, guid: a46b294146c804f488b77e6b730096d3, type: 3}
-  m_PrefabInstance: {fileID: 1761488885}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1296809013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296809009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a879e317c20b0d41a9a56f1a97f4cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1360721798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -719,21 +702,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 167853132}
     m_Modifications:
-    - target: {fileID: 7457187531634064203, guid: a46b294146c804f488b77e6b730096d3, type: 3}
-      propertyPath: focusRadiusMultiplier
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7457187531634064203, guid: a46b294146c804f488b77e6b730096d3, type: 3}
-      propertyPath: focusDistanceMultiplier
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7457187531634064205, guid: a46b294146c804f488b77e6b730096d3, type: 3}
       propertyPath: m_Name
       value: TouchCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 7457187531634064244, guid: a46b294146c804f488b77e6b730096d3, type: 3}
-      propertyPath: bounderiesCollider
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7457187531634064247, guid: a46b294146c804f488b77e6b730096d3, type: 3}
       propertyPath: m_RootOrder
