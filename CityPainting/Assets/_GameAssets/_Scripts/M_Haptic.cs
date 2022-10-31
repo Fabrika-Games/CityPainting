@@ -64,8 +64,7 @@ public class M_Haptic : MonoBehaviour
         {
             return;
         }
-
-
+        HapticPatterns.PlayPreset(HapticPatterns.PresetType.Success);
     }
 
     public void ConfetiHit()
