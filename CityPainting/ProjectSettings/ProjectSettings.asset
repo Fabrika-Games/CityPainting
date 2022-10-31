@@ -788,7 +788,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    iPhone: STARTER_ASSETS_PACKAGES_CHECKED
+    iPhone: STARTER_ASSETS_PACKAGES_CHECKED;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

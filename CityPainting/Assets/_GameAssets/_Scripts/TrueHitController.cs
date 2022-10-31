@@ -18,8 +18,8 @@ public class TrueHitController : MonoBehaviour
             M_Observer.OnTrueHitAnimationStart?.Invoke();
 
             M_Camera.I.GoToTarget(_currentCube.Bounds);
+            M_Haptic.I.TrueHit();
             yield return new WaitForSeconds(0.125f);
-
             _currentCube.CalculateSphereScale(_hitPoint);
             Level _level = M_Level.I.CurrentLevel;
             _currentCube.CurrentTrueHitController = this;

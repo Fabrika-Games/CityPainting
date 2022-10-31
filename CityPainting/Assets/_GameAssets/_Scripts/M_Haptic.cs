@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Lofelt.NiceVibrations;
 using UnityEngine;
-using RDG;
 
 public class M_Haptic : MonoBehaviour
 {
@@ -49,13 +49,13 @@ public class M_Haptic : MonoBehaviour
         II = this;
     }
 
-  
+
     public void HapticToogle()
     {
         IsHapticActive = !IsHapticActive;
     }
 
-   
+
 
     public void ButtonClick()
     {
@@ -64,10 +64,7 @@ public class M_Haptic : MonoBehaviour
             return;
         }
 
-        TapticPlugin.TapticManager.Notification(TapticPlugin.NotificationFeedback.Success);
-#if UNITY_ANDROID
-            Vibration.Vibrate(100);
-#endif
+
     }
 
     public void ConfetiHit()
@@ -77,10 +74,7 @@ public class M_Haptic : MonoBehaviour
             return;
         }
 
-        TapticPlugin.TapticManager.Notification(TapticPlugin.NotificationFeedback.Success);
-#if UNITY_ANDROID
-            Vibration.Vibrate(50);
-#endif
+
     }
 
 
@@ -91,10 +85,25 @@ public class M_Haptic : MonoBehaviour
             return;
         }
 
-        TapticPlugin.TapticManager.Impact(TapticPlugin.ImpactFeedback.Light);
-#if UNITY_ANDROID
-        Vibration.Vibrate(25);
-#endif
+
+    }
+    public void FalseHit()
+    {
+        if (!IsHapticActive)
+        {
+            return;
+        }
+        HapticPatterns.PlayPreset(HapticPatterns.PresetType.Failure);
+
+    }
+    public void TrueHit()
+    {
+        if (!IsHapticActive)
+        {
+            return;
+        }
+        HapticPatterns.PlayPreset(HapticPatterns.PresetType.Success);
+
     }
 
 

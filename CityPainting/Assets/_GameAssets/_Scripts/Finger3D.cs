@@ -80,5 +80,4 @@ public class Finger3D : MonoBehaviour
         // }, alpha, 0, 0.5f);
     }
 
-
 }

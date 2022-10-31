@@ -190,6 +190,7 @@ public class Level : MonoBehaviour
                     {
                         // M_Camera.I.GoToTarget(_mrp2.CurrentCube.Bounds);
                         _mrp2.CurrentCube.Shake();
+                        M_Haptic.I.FalseHit();
                         M_Observer.OnFalseHitAnimation?.Invoke(_mrp2.CurrentCube);
                     }
                 }
