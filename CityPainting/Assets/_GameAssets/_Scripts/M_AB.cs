@@ -47,13 +47,13 @@ public class M_AB : MonoBehaviour
         }
 
 #if UNITY_ANDROID
-         CurrentAB = AB.Control;
-         PlayerPrefs.SetInt("UserAB", (int) AB.Optimized);
-         if (IsDebug)
-         {
-             ABChangeDropdown.SetValueWithoutNotify((int) CurrentAB);
-             ABChangeDropdown.interactable = false;
-         }
+         // CurrentAB = AB.Control;
+         // PlayerPrefs.SetInt("UserAB", (int) AB.Optimized);
+         // if (IsDebug)
+         // {
+         //     ABChangeDropdown.SetValueWithoutNotify((int) CurrentAB);
+         //     ABChangeDropdown.interactable = false;
+         // }
 #else
         if (!M_Config.I.IsDebug)
         {
