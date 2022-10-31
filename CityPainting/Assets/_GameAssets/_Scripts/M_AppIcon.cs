@@ -6,18 +6,25 @@ using Random = UnityEngine.Random;
 
 public class M_AppIcon : MonoBehaviour
 {
-
-    private void Start()
-    {
-        AppIconChanger.iOS.SetAlternateIconName("icon_" + Random.Range(0, 4).ToString("00"));
-
-    }
-
+    // private void OnApplicationFocus(bool hasFocus)
+    // {
+    //     if (hasFocus == true)
+    //     {
+    //         return;
+    //     }
+    //
+    //     AppIconChanger.iOS.SetAlternateIconName("icon_" + Random.Range(0, 4).ToString("00"));
+    // }
+    //
+    // private void OnApplicationQuit()
+    // {
+    // }
 
     private void Awake()
     {
         II = this;
     }
+
     public static M_AppIcon II;
 
     public static M_AppIcon I
