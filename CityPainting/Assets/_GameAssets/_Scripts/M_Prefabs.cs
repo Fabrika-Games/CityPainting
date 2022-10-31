@@ -7,6 +7,7 @@ public class M_Prefabs : MonoBehaviour
 {
     public TrueHitController TrueHitControllerPrefab;
     public Material AnimationMaterialPrefab;
+    public Material CubeBlackWhite;
     private void Awake()
     {
         II = this;

@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrueHitControllerPrefab: {fileID: 7433862588834824969, guid: 3629a1bd314a54481ae0c1c4eeb6f143, type: 3}
   AnimationMaterialPrefab: {fileID: 2100000, guid: 0845bf4de9e244067b0f82c8ccafd262, type: 2}
+  CubeBlackWhite: {fileID: 2100000, guid: f2996941a455b2f4c9a80d06df35095f, type: 2}

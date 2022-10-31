@@ -43,6 +43,20 @@ public static class CihanUtility
         hitPoint = Vector3.zero;
         return null;
     }
+    public static GameObject PickObject(Vector2 screenPos, out RaycastHit _raycastHit)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(screenPos);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            _raycastHit = hit;
+            return hit.collider.gameObject;
+        }
+
+        _raycastHit = new RaycastHit();
+        return null;
+    }
 
     public static GameObject PickObject(Vector2 screenPos, LayerMask layerMask)
     {

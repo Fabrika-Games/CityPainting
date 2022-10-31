@@ -19,10 +19,29 @@ public class Cube : MonoBehaviour
     public Bounds Bounds;
     public Bounds BoundsTarget;
     public Vector3 SphereScale = new Vector3(40, 40, 40);
+    // public Material CurrentCubeBlackWhite;
     private void Awake()
     {
+
         MeshRendererPropertiesList = TargetGameObjects.Select(qq => qq.GetComponent<MeshRendererProperties>()).ToList();
         SetBounds();
+
+
+        // CurrentCubeBlackWhite = Instantiate(M_Prefabs.I.CubeBlackWhite);
+        // CurrentCubeBlackWhite.color = new Color(0, 0, 0, Random.Range(0, 0.25f));
+        //
+        // for (int i = 0; i < MeshRendererPropertiesList.Count; i++)
+        // {
+        //     Material[] _mats = MeshRendererPropertiesList[i].Renderer.sharedMaterials;
+        //     Material[] _newMats = new Material[_mats.Length + 1];
+        //     for (int j = 0; j < _newMats.Length - 1; j++)
+        //     {
+        //         _newMats[j] = _mats[j];
+        //     }
+        //     _newMats[_newMats.Length - 1] = CurrentCubeBlackWhite;
+        //     MeshRendererPropertiesList[i].Renderer.sharedMaterials = _newMats;
+        // }
+
     }
 
     [ContextMenu("RendererOpen")]
@@ -49,7 +68,7 @@ public class Cube : MonoBehaviour
         }
 #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(gameObject.GetComponentInParent<Level>());
-#endif    
+#endif
     }
 
 
@@ -142,4 +161,11 @@ public class Cube : MonoBehaviour
         _distance *= 2;
         SphereScale = new Vector3(_distance, _distance, _distance);
     }
+    // private void OnDestroy()
+    // {
+    //     if (CurrentCubeBlackWhite != null)
+    //     {
+    //         Destroy(CurrentCubeBlackWhite);
+    //     }
+    // }
 }

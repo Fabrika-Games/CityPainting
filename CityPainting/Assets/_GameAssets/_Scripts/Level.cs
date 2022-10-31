@@ -160,35 +160,43 @@ public class Level : MonoBehaviour
         {
             return;
         }
+        StartCoroutine(Delay());
 
-        if (tapcount == 1)
+        IEnumerator Delay()
         {
-            GameObject _pickObject = CihanUtility.PickObject(fingerpos, out Vector3 hitPoint);
-            if (_pickObject != null)
+            if (tapcount == 1)
             {
-                if (
-                    _pickObject.TryGetComponent(out MeshRendererProperties _mrp) &&
-                    _mrp.CurrentCube != null &&
-                    _mrp.CurrentCube.IsTarget == true &&
-                    _mrp.CurrentCube.isFounded == false &&
-                    _mrp.CurrentCube.CurrentTrueHitController == null)
+                GameObject _pickObject = CihanUtility.PickObject(fingerpos, out RaycastHit raycastHit);
+                if (_pickObject != null)
                 {
-                    TrueHitController _trueHitController = Instantiate(M_Prefabs.I.TrueHitControllerPrefab);
-                    _trueHitController.Setup(_mrp.CurrentCube, hitPoint);
-                }
-                else if (
-                    _pickObject.TryGetComponent(out MeshRendererProperties _mrp2) &&
-                    _mrp2.CurrentCube != null &&
-                    _mrp2.CurrentCube.IsTarget == false &&
-                    _mrp2.CurrentCube.isFounded == false &&
-                    _mrp2.CurrentCube.CurrentTrueHitController == null)
-                {
-                    // M_Camera.I.GoToTarget(_mrp2.CurrentCube.Bounds);
-                    _mrp2.CurrentCube.Shake();
-                    M_Observer.OnFalseHitAnimation?.Invoke(_mrp2.CurrentCube);
+                    Finger3D.I.Open(raycastHit);
+                    yield return new WaitForSeconds(0.25f);
+                    if (
+                        _pickObject.TryGetComponent(out MeshRendererProperties _mrp) &&
+                        _mrp.CurrentCube != null &&
+                        _mrp.CurrentCube.IsTarget == true &&
+                        _mrp.CurrentCube.isFounded == false &&
+                        _mrp.CurrentCube.CurrentTrueHitController == null)
+                    {
+                        TrueHitController _trueHitController = Instantiate(M_Prefabs.I.TrueHitControllerPrefab);
+                        _trueHitController.Setup(_mrp.CurrentCube, raycastHit.point);
+                    }
+                    else if (
+                        _pickObject.TryGetComponent(out MeshRendererProperties _mrp2) &&
+                        _mrp2.CurrentCube != null &&
+                        _mrp2.CurrentCube.IsTarget == false &&
+                        _mrp2.CurrentCube.isFounded == false &&
+                        _mrp2.CurrentCube.CurrentTrueHitController == null)
+                    {
+                        // M_Camera.I.GoToTarget(_mrp2.CurrentCube.Bounds);
+                        _mrp2.CurrentCube.Shake();
+                        M_Observer.OnFalseHitAnimation?.Invoke(_mrp2.CurrentCube);
+                    }
                 }
             }
         }
+
+
     }
 
     public void TargetCubeFound(int _index = -1)
