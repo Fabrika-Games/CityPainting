@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7457187531634064201}
   - component: {fileID: 7457187531634064203}
   - component: {fileID: 7457187531634064244}
-  - component: {fileID: 1296809013}
   m_Layer: 0
   m_Name: TouchCamera
   m_TagString: MainCamera
@@ -131,42 +130,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounderiesCollider: {fileID: 0}
---- !u!114 &1296809013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7457187531634064205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a879e317c20b0d41a9a56f1a97f4cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ApplyMethod: 0
-  SampleCount: 1
-  PerPixelNormals: 1
-  Intensity: 0.85
-  Tint: {r: 0, g: 0, b: 0, a: 1}
-  Radius: 0.65
-  PowerExponent: 1.8
-  Bias: 0.05
-  Thickness: 1
-  Downsample: 1
-  CacheAware: 0
-  FadeEnabled: 0
-  FadeStart: 100
-  FadeLength: 50
-  FadeToIntensity: 0
-  FadeToTint: {r: 0, g: 0, b: 0, a: 1}
-  FadeToRadius: 2
-  FadeToPowerExponent: 1
-  FadeToThickness: 1
-  BlurEnabled: 0
-  BlurRadius: 3
-  BlurPasses: 1
-  BlurSharpness: 15
-  FilterEnabled: 0
-  FilterDownsample: 0
-  FilterBlending: 0.8
-  FilterResponse: 0.5
