@@ -116,7 +116,7 @@ namespace Exoa.Cameras
                 initRotation = FinalRotation;
                 initDataSaved = true;
             }
-           
+
 
             ApplyToCamera();
         }
@@ -217,7 +217,7 @@ namespace Exoa.Cameras
             float dist = radius / (Mathf.Sin(fovMin * Mathf.Deg2Rad / 2f));
 
 
-            Vector3 targetOffset = b.center;
+            Vector3 targetOffset = b.center + new Vector3(0, 0, Offset);
             float targetDistance = Mathf.Clamp((dist * focusDistanceMultiplier), minMaxDistance.x, minMaxDistance.y);
 
 

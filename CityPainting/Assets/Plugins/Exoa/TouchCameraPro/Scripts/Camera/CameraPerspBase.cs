@@ -4,29 +4,28 @@ namespace Exoa.Cameras
 {
     public class CameraPerspBase : CameraBase
     {
-        [Header("DISTANCE")]
-        public float initDistance = 10f;
+        [Header("DISTANCE")] public float initDistance = 10f;
         public Vector2 minMaxDistance = new Vector2(3, 30);
-
+        public float Offset;
         protected float fov = 55.0f;
 
         public float Fov
         {
-            get
-            {
-                return fov;
-            }
+            get { return fov; }
         }
+
         public float GetDistance()
         {
             return finalDistance;
         }
+
         override protected void Init()
         {
             fov = cam.fieldOfView;
             finalDistance = initDistance;
             base.Init();
         }
+
         protected void ApplyToCamera()
         {
             if (standalone)
@@ -35,6 +34,7 @@ namespace Exoa.Cameras
                 transform.rotation = FinalRotation;
             }
         }
+
         override public Matrix4x4 GetMatrix()
         {
             float aspect = (float)Screen.width / (float)Screen.height;
@@ -50,11 +50,10 @@ namespace Exoa.Cameras
         }
 
 
-
-
         #region FOLLOW
-        [Header("FOLLOW")]
-        public float followDistanceMultiplier = 1f;
+
+        [Header("FOLLOW")] public float followDistanceMultiplier = 1f;
+
         #endregion
     }
 }

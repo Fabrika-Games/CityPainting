@@ -3,6 +3,7 @@ using Exoa.Designer;
 using Exoa.Events;
 using Lean.Touch;
 using UnityEngine;
+
 namespace Exoa.Cameras
 {
     public class CameraBase : MonoBehaviour
@@ -31,55 +32,41 @@ namespace Exoa.Cameras
         protected Vector3 worldPointFingersCenter;
         protected Vector3 worldPointFingersDelta;
 
-        [Header("INPUTS")]
-        public InputMap rightClickDrag = InputMap.Translate;
+        [Header("INPUTS")] public InputMap rightClickDrag = InputMap.Translate;
         public InputMap middleClickDrag = InputMap.Translate;
         public InputMap oneFingerDrag = InputMap.Rotate;
         protected InputMap twoFingerDrag = InputMap.Translate;
         protected float groundHeight = 0f;
 
-        public enum InputMap { Translate, Rotate };
+        public enum InputMap
+        {
+            Translate,
+            Rotate
+        };
 
         public Quaternion FinalRotation
         {
-            get
-            {
-                return finalRotation;
-            }
+            get { return finalRotation; }
         }
+
         public Vector3 FinalPosition
         {
-            get
-            {
-                return finalPosition;
-            }
+            get { return finalPosition; }
         }
+
         public bool DisableMoves
         {
-            get
-            {
-                return disableMoves;
-            }
+            get { return disableMoves; }
 
-            set
-            {
-                disableMoves = value;
-            }
+            set { disableMoves = value; }
         }
 
         public Vector3 FinalOffset
         {
-            get
-            {
-                return finalOffset;
-            }
+            get { return finalOffset; }
 
-            set
-            {
-                finalOffset = value;
-            }
+            set { finalOffset = value; }
         }
-
 
 
         virtual protected void OnDestroy()
@@ -118,14 +105,14 @@ namespace Exoa.Cameras
 
         public bool IsInputMatching(InputMap action)
         {
-
             if (middleClickDrag == action && Input.GetMouseButton(2))
                 return true;
             if (rightClickDrag == action && Input.GetMouseButton(1))
                 return true;
             if (twoFingerDrag == action && Inputs.TwoFingerFilter.UpdateAndGetFingers().Count == 2)
                 return true;
-            if (oneFingerDrag == action && !Input.GetMouseButton(1) && !Input.GetMouseButton(2) && Inputs.OneFingerFilter.UpdateAndGetFingers().Count == 1)
+            if (oneFingerDrag == action && !Input.GetMouseButton(1) && !Input.GetMouseButton(2) &&
+                Inputs.OneFingerFilter.UpdateAndGetFingers().Count == 1)
                 return true;
             return false;
         }
@@ -139,13 +126,12 @@ namespace Exoa.Cameras
 
         virtual protected void OnBeforeSwitchPerspective(bool orthoMode)
         {
-
         }
 
         virtual protected void OnAfterSwitchPerspective(bool orthoMode)
         {
-
         }
+
         protected void OnRequestButtonAction(CameraEvents.Action action, bool active)
         {
             if (action == CameraEvents.Action.ResetCameraPositionRotation)
@@ -158,6 +144,7 @@ namespace Exoa.Cameras
         {
             return new Matrix4x4();
         }
+
         protected Vector3 CalculateNewCenter(Vector3 pos, Quaternion rot)
         {
             float adj = pos.y / Mathf.Tan(Mathf.Deg2Rad * rot.eulerAngles.x);
@@ -171,13 +158,15 @@ namespace Exoa.Cameras
             return rot * (Vector3.back * distance) + center;
         }
 
-        protected float CalculateClampedDistance(Vector3 camPos, Vector3 worldPoint, Vector2 minMaxDistance, float multiplier = 1)
+        protected float CalculateClampedDistance(Vector3 camPos, Vector3 worldPoint, Vector2 minMaxDistance,
+            float multiplier = 1)
         {
             Vector3 vecWorldCenterToCamera = (camPos - worldPoint);
             return Mathf.Clamp(vecWorldCenterToCamera.magnitude * multiplier, minMaxDistance.x, minMaxDistance.y);
         }
 
-        protected float CalculateClampedDistance(Vector3 camPos, Vector3 worldPoint, float minMaxDistance, float multiplier = 1)
+        protected float CalculateClampedDistance(Vector3 camPos, Vector3 worldPoint, float minMaxDistance,
+            float multiplier = 1)
         {
             Vector3 vecWorldCenterToCamera = (camPos - worldPoint);
             return Mathf.Clamp(vecWorldCenterToCamera.magnitude * multiplier, minMaxDistance, minMaxDistance);
@@ -190,7 +179,6 @@ namespace Exoa.Cameras
 
         protected float GetRotationSensitivity()
         {
-
             // Adjust sensitivity by FOV?
             if (cam.orthographic == false)
             {
@@ -202,16 +190,16 @@ namespace Exoa.Cameras
 
 
         #region RESET
+
         virtual public void ResetCamera()
         {
-
         }
 
         #endregion
 
         #region FOCUS
-        [Header("FOCUS")]
-        public float focusTweenDuration = 1f;
+
+        [Header("FOCUS")] public float focusTweenDuration = 1f;
         public Ease focusEase = Ease.InOutCubic;
         public float focusDistanceMultiplier = 1f;
         public float focusRadiusMultiplier = 1f;
@@ -220,12 +208,13 @@ namespace Exoa.Cameras
         {
             StopFollow();
         }
+
         #endregion
 
 
         #region FOLLOW
-        [Header("FOLLOW")]
-        public float followRadiusMultiplier = 1f;
+
+        [Header("FOLLOW")] public float followRadiusMultiplier = 1f;
         protected GameObject followedGo;
         protected bool enableDistanceFocusOnFollow;
         protected bool enableFollow;
@@ -243,6 +232,5 @@ namespace Exoa.Cameras
         }
 
         #endregion
-
     }
 }
